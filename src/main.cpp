@@ -2,7 +2,9 @@
 
 // Technologies Required: C++ programming language, Object Oriented Programming (OOP), Encryption & Authentication and Database Management System (DBMS).
 
+#include "User.h"
 
 int main(){
+    User newUser = User("New Name", "Phone", "DOB", "PAssword");
     return 0;
 }

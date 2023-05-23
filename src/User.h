@@ -2,7 +2,12 @@
 #include <stdio.h>
 #include <iostream>
 
-#define USER_HPP
+#ifndef USER_H
+#define USER_H
+
+
+
+// Change to Header file?
 
 class User
 {
@@ -15,11 +20,10 @@ class User
         // std::string encryptPW(){};
         // std::string decryptPW(){};
 
-
-    
     public:
         User(std::string name, std::string phone, std::string dob, std::string pw);
-        ~User();
+        ~User(){};
+        
         // Name Functions
         void set_name(std::string name)
         {
@@ -55,15 +59,10 @@ class User
         }
 };
 
-User::User(std::string name, std::string phone, std::string dob, std::string pw)
+User::User(std::string name, std::string phone, std::string dob, std::string pw): 
+    username(name),phoneNum(phone),dob(dob),password(pw) 
 {
-    set_name(name);
-    set_phone(phone);
-    set_dob(dob);
-    set_pw(pw);
     describe_user();
 }
 
-User::~User()
-{
-}
+#endif

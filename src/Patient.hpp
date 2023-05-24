@@ -10,7 +10,7 @@ class Patient : public User
     public:
         Patient(std::string name, std::string phone, std::string dob, std::string pw, std::string cardNum);
         ~Patient();
-        void print_cardNum();
+        std::string get_cardNum();
         void update_cardNum(std::string newNum);
 };
 

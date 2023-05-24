@@ -10,6 +10,9 @@ class User
         std::string phoneNum;
         std::string dob; // Look into how we can store dates
         std::string password;
+        bool loggedIn = false;
+
+        bool checkPassword(std::string inputPw);
 
         // std::string encryptPW(){};
         // std::string decryptPW(){};
@@ -35,8 +38,12 @@ class User
         // bool check_pw(){};
 
         // bool user_login(){};
+        void login(std::string inputPw);
+
 
         void describe_user();
+
+
 };
 
 #endif

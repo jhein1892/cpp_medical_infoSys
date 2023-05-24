@@ -7,6 +7,14 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw)
 
 User::~User(){};
 
+bool User::checkPassword(std::string inputPw){
+    if(password == inputPw){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 // Name Functions
 void User::set_name(std::string name){username = name;};
@@ -32,6 +40,22 @@ std::string User::get_dob() const
 // Password Functions
 void User::set_pw(std::string pw){password = pw;};
 // bool check_pw(){};
+
+void User::login(std::string inputPw){
+    if(loggedIn){
+        std::cout << "Already Logged in" << std::endl;
+        return;
+    }
+
+    
+    if(checkPassword(inputPw)){
+        loggedIn = true;
+        std::cout << "User Logged in" << std::endl;
+    } else {
+        std::cout << "Incorrect Password, Please try again." << std::endl;
+    }
+}
+
 
 // bool user_login(){};
 

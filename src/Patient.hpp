@@ -1,5 +1,7 @@
+#ifndef PATIENT_H
+#define PATIENT_H
+
 #include "User.hpp"
-#include <iostream>
 
 class Patient : public User
 {
@@ -11,3 +13,5 @@ class Patient : public User
         void print_cardNum();
         void update_cardNum(std::string newNum);
 };
+
+#endif

@@ -2,10 +2,12 @@
 #define USER_H
 
 #include <string>
+#include <map>
 
 class User
 {
     private:
+        std::map<std::string, std::string> user_map;
         std::string username;
         std::string phoneNum;
         std::string dob; // Look into how we can store dates

@@ -1,8 +1,25 @@
 #include "User.hpp"
 #include <iostream>
+#include <fstream>
+
 
 User::User(std::string name, std::string phone, std::string dob, std::string pw): username(name),phoneNum(phone),dob(dob),password(pw) {
-    describe_user();
+    // Store input values into user_map variable
+    user_map["name"] = name;
+    user_map["phone"] = phone;
+    user_map["DOB"] = dob;
+    user_map["password"] = pw;
+
+    std::ofstream outFile("../files/TestFile.txt");
+    if(!outFile.is_open()){
+        std::cerr << "Error: Could not open File" << " TestFile.txt" << std::endl;
+    }
+
+    for (const auto& p : user_map){
+        outFile << p.first << ": " << p.second << std::endl;
+    }
+
+    outFile.close();
 };
 
 User::~User(){};
@@ -47,7 +64,7 @@ void User::login(std::string inputPw){
         return;
     }
 
-    
+
     if(checkPassword(inputPw)){
         loggedIn = true;
         std::cout << "User Logged in" << std::endl;

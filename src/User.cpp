@@ -25,7 +25,7 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw)
 User::~User(){};
 
 bool User::checkPassword(std::string inputPw){
-    if(password == inputPw){
+    if(user_map["password"] == inputPw){
         return true;
     } else {
         return false;
@@ -34,28 +34,46 @@ bool User::checkPassword(std::string inputPw){
 
 
 // Name Functions
-void User::set_name(std::string name){username = name;};
+void User::set_name(std::string name)
+{
+    user_map["name"] = name;
+    // Update File
+};
 std::string User::get_name() const 
 {
     return username;
 };
 
 // Phone Functions
-void User::set_phone(std::string phone){phoneNum = phone;};
+void User::set_phone(std::string phone)
+{
+    user_map["phone"] = phone;
+
+    // Update File
+};
 std::string User::get_phone() const 
 {
     return phoneNum;
 };
 
 // Date of Birth Functions
-void User::set_dob(std::string dob){dob = dob;};
+void User::set_dob(std::string dob)
+{
+    user_map["DOB"] = dob;
+    // Update File
+};
 std::string User::get_dob() const
 {
     return dob;
 };
 
 // Password Functions
-void User::set_pw(std::string pw){password = pw;};
+void User::set_pw(std::string pw)
+{
+    user_map["password"] = pw;
+
+    // Update File
+};
 // bool check_pw(){};
 
 void User::login(std::string inputPw){
@@ -63,8 +81,7 @@ void User::login(std::string inputPw){
         std::cout << "Already Logged in" << std::endl;
         return;
     }
-
-
+    
     if(checkPassword(inputPw)){
         loggedIn = true;
         std::cout << "User Logged in" << std::endl;

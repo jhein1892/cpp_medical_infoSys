@@ -4,31 +4,15 @@
 
 
 User::User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName): 
-username(name),phoneNum(phone),dob(dob),password(pw)
+username(name),phoneNum(phone),dob(dob),password(pw), filename(fileName)
 {
     // Store input values into user_map variable
     user_map["name"] = name;
     user_map["phone"] = phone;
     user_map["DOB"] = dob;
-    user_map["password"] = pw;
-    // strcpy(filename, fileName);
-    // char fullFile[100];
-    // strcpy(fullFile, fileFolder);
-    // strcat(fullFile, filename);
-    // std::cout << fullFile << std::endl;
+    user_map["password"] = pw;   
 
-    std::string fullFile = fileFolder + fileName;
-    
-    std::ofstream outFile(fullFile);
-    if(!outFile.is_open()){
-        std::cerr << "Error: Could not open File" << fullFile << std::endl;
-    }
-
-    for (const auto& p : user_map){
-        outFile << p.first << ": " << p.second << std::endl;
-    }
-
-    outFile.close();
+    gen_file();
 };
 
 User::~User(){};
@@ -52,6 +36,12 @@ std::string User::get_name() const
 {
     return username;
 };
+
+void User::set_filename(std::string file)
+{
+    filename = file;
+    gen_file();
+}
 
 // Phone Functions
 void User::set_phone(std::string phone)
@@ -104,4 +94,23 @@ void User::login(std::string inputPw){
 
 void User::describe_user(){
     std::cout << "Name: " << username << "\nPhone: " << phoneNum << "\ndob: " << dob << "\nPW: " << password << std::endl;
+}
+
+
+void User::gen_file(){
+    if(!filename.empty()){
+        std::string fullFile = fileFolder + filename;
+        std::ofstream outFile(fullFile);
+        if(!outFile.is_open()){
+            std::cerr << "Error: Could not open File" << fullFile << std::endl;
+        }
+
+        for (const auto& p : user_map){
+            outFile << p.first << ": " << p.second << std::endl;
+        }
+
+        outFile.close();
+    } else {
+        std::cerr << "No Filename detected" << std::endl;
+    }
 }

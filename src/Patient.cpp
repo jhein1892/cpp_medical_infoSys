@@ -18,14 +18,6 @@ std::string Patient::genFileName(){
 
     std::cout << subFolder << std::endl;
     return fullFile;
-
-    // // const char* subFolder = "patients/";
-    // const char* fileName = "123.txt";
-    // char fullFile[100];
-    // strcpy(fullFile, subFolder);
-    // strcat(fullFile, fileName);
-    // std::cout <<  subFolder << std::endl;
-    // return fullFile;
 }
 
 

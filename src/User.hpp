@@ -9,7 +9,7 @@ class User
     private:
         std::map<std::string, std::string> user_map;
         std::string fileFolder = "../files/";
-        char filename[100];
+        std::string filename;
         std::string username;
         std::string phoneNum;
         std::string dob; // Look into how we can store dates
@@ -30,6 +30,9 @@ class User
         void set_name(std::string name);
         std::string get_name() const;
 
+        void set_filename(std::string file);
+        std::string get_filename() const;
+
         // Phone Functions
         void set_phone(std::string phone);
         std::string get_phone() const;
@@ -45,6 +48,7 @@ class User
         // bool user_login(){};
         void login(std::string inputPw);
 
+        void gen_file();
 
         void describe_user();
 

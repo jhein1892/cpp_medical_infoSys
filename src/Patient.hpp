@@ -7,10 +7,9 @@ class Patient : public User
 {
     private:
         std::string cardNumber;
-        const char* subFolder = "patients/";
         std::string patientID;
 
-        char* genFileName();
+        std::string genFileName();
     public:
         Patient(std::string name, std::string phone, std::string dob, std::string pw, std::string cardNum);
         ~Patient();

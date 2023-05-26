@@ -3,7 +3,7 @@
 #include <fstream>
 
 
-User::User(std::string name, std::string phone, std::string dob, std::string pw, char* fileName): 
+User::User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName): 
 username(name),phoneNum(phone),dob(dob),password(pw)
 {
     // Store input values into user_map variable
@@ -11,11 +11,13 @@ username(name),phoneNum(phone),dob(dob),password(pw)
     user_map["phone"] = phone;
     user_map["DOB"] = dob;
     user_map["password"] = pw;
-    strcpy(filename, fileName);
-    char fullFile[100];
-    strcpy(fullFile, fileFolder);
-    strcat(fullFile, filename);
-    std::cout << fullFile << std::endl;
+    // strcpy(filename, fileName);
+    // char fullFile[100];
+    // strcpy(fullFile, fileFolder);
+    // strcat(fullFile, filename);
+    // std::cout << fullFile << std::endl;
+
+    std::string fullFile = fileFolder + fileName;
     
     std::ofstream outFile(fullFile);
     if(!outFile.is_open()){

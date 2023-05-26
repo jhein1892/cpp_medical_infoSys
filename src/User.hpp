@@ -8,7 +8,7 @@ class User
 {
     private:
         std::map<std::string, std::string> user_map;
-        const char* fileFolder = "../files/";
+        std::string fileFolder = "../files/";
         char filename[100];
         std::string username;
         std::string phoneNum;
@@ -23,7 +23,7 @@ class User
         // std::string decryptPW(){};
 
     public:
-        User(std::string name, std::string phone, std::string dob, std::string pw, char* fileName);
+        User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName);
         ~User();
         
         // Name Functions

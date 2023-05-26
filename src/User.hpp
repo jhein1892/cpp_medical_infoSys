@@ -6,18 +6,7 @@
 
 class User
 {
-    private:
-        std::map<std::string, std::string> user_map;
-        std::string fileFolder = "../files/";
-        std::string filename;
-
-        bool loggedIn = false;
-
-        bool checkPassword(std::string inputPw);
-
-        // std::string encryptPW(){};
-        // std::string decryptPW(){};
-
+    
     public:
         User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName);
         ~User();
@@ -47,6 +36,19 @@ class User
         void gen_file();
 
         void describe_user();
+
+
+    private:
+        std::map<std::string, std::string> user_map;
+        std::string fileFolder = "../files/";
+        std::string filename;
+
+        bool loggedIn = false;
+
+        bool checkPassword(std::string inputPw);
+
+        // std::string encryptPW(){};
+        // std::string decryptPW(){};
 
 
 };

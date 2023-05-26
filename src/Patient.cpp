@@ -10,11 +10,14 @@ Patient::Patient(std::string name, std::string phone, std::string dob, std::stri
 
 Patient::~Patient(){};
 
-std::string* Patient::genFileName(){
-    std::string* fullFile;
-    std::string fileName = subFolder + "123.txt";
-    fullFile = &fileName;
-    printf("Full File name is %p\n", fullFile);
+char* Patient::genFileName(){
+    const char* fileName = "123.txt";
+    char fullFile[100];
+    strcpy(fullFile, subFolder);
+    strcat(fullFile, fileName);
+    // char fileName = subFolder + "123.txt";
+    // fullFile = &fileName;
+    printf("Full File name is %s\n", subFolder);
     // std::cout <<  fullFile << std::endl;
     return fullFile;
 }

@@ -8,8 +8,8 @@ class User
 {
     private:
         std::map<std::string, std::string> user_map;
-        std::string fileFolder = "../files/";
-        std::string* filename;
+        const char* fileFolder = "../files/";
+        char filename[100];
         std::string username;
         std::string phoneNum;
         std::string dob; // Look into how we can store dates
@@ -23,7 +23,7 @@ class User
         // std::string decryptPW(){};
 
     public:
-        User(std::string name, std::string phone, std::string dob, std::string pw, std::string* fileName);
+        User(std::string name, std::string phone, std::string dob, std::string pw, char* fileName);
         ~User();
         
         // Name Functions

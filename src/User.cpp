@@ -3,21 +3,23 @@
 #include <fstream>
 
 
-User::User(std::string name, std::string phone, std::string dob, std::string pw, std::string* fileName): 
-username(name),phoneNum(phone),dob(dob),password(pw),filename(fileName) 
+User::User(std::string name, std::string phone, std::string dob, std::string pw, char* fileName): 
+username(name),phoneNum(phone),dob(dob),password(pw)
 {
     // Store input values into user_map variable
     user_map["name"] = name;
     user_map["phone"] = phone;
     user_map["DOB"] = dob;
     user_map["password"] = pw;
-    // std::cout << filename << std::endl;
-    std::string fullFileName = fileFolder + *filename;
-    std::cout << *filename << std::endl;
-    // printf("Filename: %s", c_str(*filename));
-    std::ofstream outFile(fullFileName);
+    strcpy(filename, fileName);
+    char fullFile[100];
+    strcpy(fullFile, fileFolder);
+    strcat(fullFile, filename);
+    std::cout << fullFile << std::endl;
+    
+    std::ofstream outFile(fullFile);
     if(!outFile.is_open()){
-        std::cerr << "Error: Could not open File" << fullFileName << std::endl;
+        std::cerr << "Error: Could not open File" << fullFile << std::endl;
     }
 
     for (const auto& p : user_map){

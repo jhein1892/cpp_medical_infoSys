@@ -10,10 +10,6 @@ class User
         std::map<std::string, std::string> user_map;
         std::string fileFolder = "../files/";
         std::string filename;
-        std::string username;
-        std::string phoneNum;
-        std::string dob; // Look into how we can store dates
-        std::string password;
 
         bool loggedIn = false;
 

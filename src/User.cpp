@@ -4,13 +4,16 @@
 
 
 User::User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName): 
-username(name),phoneNum(phone),dob(dob),password(pw), filename(fileName)
+filename(fileName)
+// username(name),phoneNum(phone),dob(dob),password(pw), 
 {
     // Store input values into user_map variable
     user_map["name"] = name;
     user_map["phone"] = phone;
     user_map["DOB"] = dob;
     user_map["password"] = pw;   
+
+    describe_user();
 
     gen_file();
 };
@@ -34,7 +37,8 @@ void User::set_name(std::string name)
 };
 std::string User::get_name() const 
 {
-    return username;
+    auto it = user_map.find("name");
+    return it->second;
 };
 
 void User::set_filename(std::string file)
@@ -52,7 +56,8 @@ void User::set_phone(std::string phone)
 };
 std::string User::get_phone() const 
 {
-    return phoneNum;
+    auto it = user_map.find("phone");
+    return it->second;
 };
 
 // Date of Birth Functions
@@ -63,7 +68,8 @@ void User::set_dob(std::string dob)
 };
 std::string User::get_dob() const
 {
-    return dob;
+    auto it = user_map.find("DOB");
+    return it->second;
 };
 
 // Password Functions
@@ -93,7 +99,8 @@ void User::login(std::string inputPw){
 // bool user_login(){};
 
 void User::describe_user(){
-    std::cout << "Name: " << username << "\nPhone: " << phoneNum << "\ndob: " << dob << "\nPW: " << password << std::endl;
+    
+    std::cout << "Name: " << get_name() << "\nPhone: " << get_phone() << std::endl;
 }
 
 

@@ -2,7 +2,7 @@
 
 // Technologies Required: C++ programming language, Object Oriented Programming (OOP), Encryption & Authentication and Database Management System (DBMS).
 #include "Patient.hpp"
-#include "Doctor.hpp"
+// #include "Doctor.hpp"
 
 #include "User.hpp"
 
@@ -12,10 +12,10 @@
 
 int main(){
 
-    User newUser = User("Name", "Phone", "DOB", "PW");
+    // User newUser = User("Name", "Phone", "DOB", "PW", "Test1.txt");
+    Patient newPatient = Patient("New Name", "Phone", "DOB", "PAssword", "123456789");
 
 
-    // Patient newPatient = Patient("New Name", "Phone", "DOB", "PAssword", "123456789");
     // Doctor newDoctor = Doctor("New Doctor", "Doc Phone", "dob", "paSSWORD", "123dd");
 
     // newDoctor.login("WrongPassword");

@@ -8,10 +8,13 @@ class User
 {
     private:
         std::map<std::string, std::string> user_map;
+        std::string fileFolder = "../files/";
+        std::string* filename;
         std::string username;
         std::string phoneNum;
         std::string dob; // Look into how we can store dates
         std::string password;
+
         bool loggedIn = false;
 
         bool checkPassword(std::string inputPw);
@@ -20,7 +23,7 @@ class User
         // std::string decryptPW(){};
 
     public:
-        User(std::string name, std::string phone, std::string dob, std::string pw);
+        User(std::string name, std::string phone, std::string dob, std::string pw, std::string* fileName);
         ~User();
         
         // Name Functions

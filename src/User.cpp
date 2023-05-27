@@ -3,9 +3,7 @@
 #include <fstream>
 
 
-User::User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName): 
-filename(fileName)
-// username(name),phoneNum(phone),dob(dob),password(pw), 
+User::User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName): filename(fileName)
 {
     // Store input values into user_map variable
     user_map["name"] = name;
@@ -19,15 +17,6 @@ filename(fileName)
 };
 
 User::~User(){};
-
-bool User::checkPassword(std::string inputPw){
-    if(user_map["password"] == inputPw){
-        return true;
-    } else {
-        return false;
-    }
-}
-
 
 // Name Functions
 void User::set_name(std::string name)
@@ -80,6 +69,7 @@ void User::set_pw(std::string pw)
     // Update File
 };
 // bool check_pw(){};
+// bool user_login(){};
 
 void User::login(std::string inputPw){
     if(loggedIn){
@@ -94,15 +84,6 @@ void User::login(std::string inputPw){
         std::cout << "Incorrect Password, Please try again." << std::endl;
     }
 }
-
-
-// bool user_login(){};
-
-void User::describe_user(){
-    
-    std::cout << "Name: " << get_name() << "\nPhone: " << get_phone() << std::endl;
-}
-
 
 void User::gen_file(){
     if(!filename.empty()){
@@ -119,5 +100,18 @@ void User::gen_file(){
         outFile.close();
     } else {
         std::cerr << "No Filename detected" << std::endl;
+    }
+}
+
+void User::describe_user(){
+    
+    std::cout << "Name: " << get_name() << "\nPhone: " << get_phone() << std::endl;
+}
+
+bool User::checkPassword(std::string inputPw){
+    if(user_map["password"] == inputPw){
+        return true;
+    } else {
+        return false;
     }
 }

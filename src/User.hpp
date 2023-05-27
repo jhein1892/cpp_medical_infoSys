@@ -16,8 +16,7 @@ class User
         std::string get_name() const;
 
         void set_filename(std::string file);
-        std::string get_filename() const;
-
+        
         // Phone Functions
         void set_phone(std::string phone);
         std::string get_phone() const;

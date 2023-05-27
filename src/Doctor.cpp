@@ -16,6 +16,10 @@ std::string Doctor::get_id()
     return doctorID;
 }
 
+void Doctor::update_id(std::string id){
+    doctorID = id;
+}
+
 std::string Doctor::genFileName(){
     std::string fileName = get_id();
     std::string subFolder = "/doctors/";
@@ -24,8 +28,4 @@ std::string Doctor::genFileName(){
     std::cout << get_id() << std::endl;
 
     return fullFile;
-}
-
-void Doctor::update_id(std::string id){
-    doctorID = id;
 }

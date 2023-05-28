@@ -2,9 +2,10 @@
 #include <iostream>
 
 Patient::Patient(std::string name, std::string phone, std::string dob, std::string pw, std::string cardNum): 
-    User(name, phone, dob, pw, genFileName()), cardNumber(cardNum)
+    User(name, phone, dob, pw, ""), cardNumber(cardNum)
 {
-    std::cout << get_cardNum() << std::endl;
+    setPatientID();
+    User::set_filename(genFileName());
 };
 
 Patient::~Patient(){};
@@ -18,12 +19,17 @@ void Patient::update_cardNum(std::string newNum){
 }
 
 std::string Patient::genFileName(){
-    std::string userID = User::genID(10);
-    std::string fileName = userID + ".txt";
+
+    std::string fileName = patientID + ".txt";
     std::string subFolder = "/patients/";
 
     std::string fullFile = subFolder + fileName;
 
     std::cout << subFolder << std::endl;
     return fullFile;
+}
+
+void Patient::setPatientID(){
+    std::string userID = User::genID(10);
+    patientID = userID;
 }

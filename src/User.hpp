@@ -16,7 +16,7 @@ class User
         std::string get_name() const;
 
         void set_filename(std::string file);
-        
+
         // Phone Functions
         void set_phone(std::string phone);
         std::string get_phone() const;
@@ -36,6 +36,8 @@ class User
 
         void describe_user();
 
+        std::string genID(int length);
+        bool checkPassword(std::string inputPw);
 
     private:
         std::map<std::string, std::string> user_map;
@@ -44,7 +46,7 @@ class User
 
         bool loggedIn = false;
 
-        bool checkPassword(std::string inputPw);
+
 
         // std::string encryptPW(){};
         // std::string decryptPW(){};

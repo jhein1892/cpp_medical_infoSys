@@ -1,6 +1,8 @@
 #include "User.hpp"
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 
 
 User::User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName): filename(fileName)
@@ -106,6 +108,21 @@ void User::gen_file(){
 void User::describe_user(){
     
     std::cout << "Name: " << get_name() << "\nPhone: " << get_phone() << std::endl;
+}
+
+std::string User::genID(int length){
+    std::string characters = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    std::string userID;
+
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
+    
+    for (int i = 0; i < length; i++){
+        int randomIndex = std::rand() % characters.length();
+        userID += characters[randomIndex];
+    };
+    std::cout << userID << std::endl;
+
+    return userID;
 }
 
 bool User::checkPassword(std::string inputPw){

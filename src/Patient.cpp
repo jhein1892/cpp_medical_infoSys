@@ -18,7 +18,8 @@ void Patient::update_cardNum(std::string newNum){
 }
 
 std::string Patient::genFileName(){
-    std::string fileName = "123.txt";
+    std::string userID = User::genID(10);
+    std::string fileName = userID + ".txt";
     std::string subFolder = "/patients/";
 
     std::string fullFile = subFolder + fileName;

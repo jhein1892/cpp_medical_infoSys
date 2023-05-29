@@ -33,3 +33,8 @@ void Patient::setPatientID(){
     std::string userID = User::genID(10);
     patientID = userID;
 }
+
+void Patient::genPayment(){
+    std::cout << "Payment Processed on Card Number: " << cardNumber << std::endl;
+    return;
+}

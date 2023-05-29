@@ -18,6 +18,7 @@ class Patient : public User
 
         std::string genFileName();
         void setPatientID();
+        void genPayment();
 };
 
 #endif

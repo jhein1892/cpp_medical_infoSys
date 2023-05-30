@@ -18,6 +18,23 @@ void Patient::update_cardNum(std::string newNum){
     cardNumber = newNum;
 }
 
+void Patient::add_appt(std::string date, std::string time){
+    // Get Date and Time from input
+
+    // Check Corresponsiding Doctors schedule to see if there is already appointment
+
+        // If no, add appt to patients appt var, add patient id to Doctors appt file
+
+        // If yes, ask for a new date/time
+        return;
+}
+
+void Patient::gen_report(){
+    // Similar to a describe User function: Provide general info about Patient, also provide a description of their appointment schedule.
+
+    return;
+}
+
 std::string Patient::genFileName(){
 
     std::string fileName = patientID + ".txt";

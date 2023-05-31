@@ -30,60 +30,11 @@ std::string User::get_value(std::string key){
     return it->second;
 }
 
-
-
-// Name Functions
-// void User::set_name(std::string name)
-// {
-//     user_map["name"] = name;
-//     // Update File
-// };
-// std::string User::get_name() const 
-// {
-//     auto it = user_map.find("name");
-//     return it->second;
-// };
-
 void User::set_filename(std::string file)
 {
     filename = file;
     gen_file();
 }
-
-// Phone Functions
-// void User::set_phone(std::string phone)
-// {
-//     user_map["phone"] = phone;
-
-//     // Update File
-// };
-// std::string User::get_phone() const 
-// {
-//     auto it = user_map.find("phone");
-//     return it->second;
-// };
-
-// Date of Birth Functions
-// void User::set_dob(std::string dob)
-// {
-//     user_map["DOB"] = dob;
-//     // Update File
-// };
-// std::string User::get_dob() const
-// {
-//     auto it = user_map.find("DOB");
-//     return it->second;
-// };
-
-// Password Functions
-// void User::set_pw(std::string pw)
-// {
-//     user_map["password"] = pw;
-
-//     // Update File
-// };
-// bool check_pw(){};
-// bool user_login(){};
 
 void User::login(std::string inputPw){
     if(loggedIn){

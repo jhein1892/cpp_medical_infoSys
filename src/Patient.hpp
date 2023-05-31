@@ -12,12 +12,13 @@ class Patient : public User
         std::string get_cardNum();
         void update_cardNum(std::string newNum);
 
-        void add_appt(std::string date, std::string time);
+        void add_appt(std::string date);
         void gen_report();
 
     private:
         std::string cardNumber;
         std::string patientID;
+        // std::string nextAppt;
 
         std::string genFileName();
         void setPatientID();

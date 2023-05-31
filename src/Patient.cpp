@@ -18,8 +18,10 @@ void Patient::update_cardNum(std::string newNum){
     cardNumber = newNum;
 }
 
-void Patient::add_appt(std::string date, std::string time){
-    // Get Date and Time from input
+void Patient::add_appt(std::string date){
+    User::user_map["next_appt"] = date;
+
+    // Get Date from input
 
     // Check Corresponsiding Doctors schedule to see if there is already appointment
 

@@ -6,7 +6,6 @@ User(name, phone, dob, pw, ""), doctorID(id)
 {
     User::set_filename(genFileName());
     std::cout << get_id() << std::endl;
-    
 }
 
 Doctor::~Doctor(){};

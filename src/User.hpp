@@ -36,15 +36,18 @@ class User
 
         void describe_user();
 
-        std::string genID(int length);
+
+    protected:
+        std::map<std::string, std::string> user_map;
+        bool loggedIn = false;
+
         bool checkPassword(std::string inputPw);
+        std::string genID(int length);
 
     private:
-        std::map<std::string, std::string> user_map;
         std::string fileFolder = "../files/";
         std::string filename;
 
-        bool loggedIn = false;
 
 
 

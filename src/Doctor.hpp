@@ -19,6 +19,7 @@ class Doctor : public User {
     private:
         std::string doctorID;
         std::string genFileName();
+        
 };
 
 #endif

@@ -22,6 +22,7 @@ User::~User(){};
 
 void User::update_map(std::string key, std::string value){
     user_map[key] = value;
+    gen_file();
     return;
 };
 

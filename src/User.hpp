@@ -11,7 +11,9 @@ class User
         User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName);
         ~User();
 
-        void update_map(std::string key, std::string value);
+        void update_map();
+
+        void update_key(std::string key, std::string value);
         std::string get_value(std::string key);
 
         void set_filename(std::string file);

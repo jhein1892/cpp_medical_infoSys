@@ -20,7 +20,27 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw,
 
 User::~User(){};
 
-void User::update_map(std::string key, std::string value){
+void User::update_map(){
+    std::ifstream inFile(filename);
+    std::string line;
+
+    if(!inFile.is_open()){
+        std::cerr << "Error: Could not open file " << filename << std::endl;
+    }
+
+    while(std::getline(inFile, line)){
+        std::size_t pos = line.find(":");
+        if(pos != std::string::npos){
+            std::string key = line.substr(0, pos);
+            std::string value = line.substr(pos + 1);
+
+            update_key(key, value);
+        }
+    }
+    inFile.close();
+}
+
+void User::update_key(std::string key, std::string value){
     user_map[key] = value;
     gen_file();
     return;
@@ -62,7 +82,7 @@ void User::gen_file(){
         for (const auto& p : user_map){
             outFile << p.first << ": " << p.second << std::endl;
         }
-
+        filename = fullFile;
         outFile.close();
     } else {
         std::cerr << "No Filename detected" << std::endl;

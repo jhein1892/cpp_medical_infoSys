@@ -19,7 +19,7 @@ void Patient::update_cardNum(std::string newNum){
 }
 
 void Patient::add_appt(std::string date){
-    User::update_map("next_appt", date);
+    User::update_key("next_appt", date);
     
     // Get Date from input
 

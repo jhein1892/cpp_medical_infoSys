@@ -20,17 +20,29 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw,
 
 User::~User(){};
 
-// Name Functions
-void User::set_name(std::string name)
-{
-    user_map["name"] = name;
-    // Update File
+void User::update_map(std::string key, std::string value){
+    user_map[key] = value;
+    return;
 };
-std::string User::get_name() const 
-{
-    auto it = user_map.find("name");
+
+std::string User::get_value(std::string key){
+    auto it = user_map.find(key);
     return it->second;
-};
+}
+
+
+
+// Name Functions
+// void User::set_name(std::string name)
+// {
+//     user_map["name"] = name;
+//     // Update File
+// };
+// std::string User::get_name() const 
+// {
+//     auto it = user_map.find("name");
+//     return it->second;
+// };
 
 void User::set_filename(std::string file)
 {
@@ -39,37 +51,37 @@ void User::set_filename(std::string file)
 }
 
 // Phone Functions
-void User::set_phone(std::string phone)
-{
-    user_map["phone"] = phone;
+// void User::set_phone(std::string phone)
+// {
+//     user_map["phone"] = phone;
 
-    // Update File
-};
-std::string User::get_phone() const 
-{
-    auto it = user_map.find("phone");
-    return it->second;
-};
+//     // Update File
+// };
+// std::string User::get_phone() const 
+// {
+//     auto it = user_map.find("phone");
+//     return it->second;
+// };
 
 // Date of Birth Functions
-void User::set_dob(std::string dob)
-{
-    user_map["DOB"] = dob;
-    // Update File
-};
-std::string User::get_dob() const
-{
-    auto it = user_map.find("DOB");
-    return it->second;
-};
+// void User::set_dob(std::string dob)
+// {
+//     user_map["DOB"] = dob;
+//     // Update File
+// };
+// std::string User::get_dob() const
+// {
+//     auto it = user_map.find("DOB");
+//     return it->second;
+// };
 
 // Password Functions
-void User::set_pw(std::string pw)
-{
-    user_map["password"] = pw;
+// void User::set_pw(std::string pw)
+// {
+//     user_map["password"] = pw;
 
-    // Update File
-};
+//     // Update File
+// };
 // bool check_pw(){};
 // bool user_login(){};
 
@@ -107,7 +119,7 @@ void User::gen_file(){
 
 void User::describe_user(){
     
-    std::cout << "Name: " << get_name() << "\nPhone: " << get_phone() << std::endl;
+    std::cout << "Name: " << get_value("name") << "\nPhone: " << get_value("phone") << std::endl;
 }
 
 std::string User::genID(int length){
@@ -115,7 +127,7 @@ std::string User::genID(int length){
     std::string userID;
 
     std::srand(static_cast<unsigned>(std::time(nullptr)));
-    
+
     for (int i = 0; i < length; i++){
         int randomIndex = std::rand() % characters.length();
         userID += characters[randomIndex];

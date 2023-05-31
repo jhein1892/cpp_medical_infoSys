@@ -18,6 +18,8 @@ int main(){
 
     Doctor newDoctor = Doctor("New Doctor", "Doc Phone", "dob", "paSSWORD", "123dd");
 
+    newPatient.add_appt("Today");
+
     // newDoctor.login("WrongPassword");
     // newPatient.login("PAssword");
     // newPatient.login("AlredyLoggedIN");

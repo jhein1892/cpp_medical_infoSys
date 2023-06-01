@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 
-
+// New User 
 User::User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName): filename(fileName)
 {
     // Store input values into user_map variable
@@ -17,6 +17,11 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw,
 
     gen_file();
 };
+
+// Login Existing User
+User::User(std::string id, std::string pw, std::string fileName){
+    return;
+}
 
 User::~User(){};
 

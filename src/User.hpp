@@ -8,7 +8,11 @@ class User
 {
     
     public:
+        // Creating a new User
         User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName);
+
+        // Logging into an existing User
+        User(std::string id, std::string pw, std::string fileName);
         ~User();
 
         void update_map();

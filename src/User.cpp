@@ -56,6 +56,7 @@ void User::update_map(){
 
 void User::update_key(std::string key, std::string value){
     user_map[key] = value;
+    save_file();
     return;
 };
 

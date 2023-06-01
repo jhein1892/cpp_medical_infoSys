@@ -6,11 +6,15 @@ Patient::Patient(std::string name, std::string phone, std::string dob, std::stri
 {
     setPatientID();
     User::set_filename(genFileName());
+    User::gen_file();
 };
 
 Patient::Patient(std::string id, std::string pw): User(id, pw, ""){
     setPatientID(id);
     User::set_filename(genFileName(id));
+    User::update_map();
+    // Try Logging in
+    User::login(pw);
 }
 
 Patient::~Patient(){};
@@ -60,7 +64,7 @@ std::string Patient::genFileName(std::string id){
 
     std::string fullFile = subFolder + fileName;
 
-    std::cout << subFolder << std::endl;
+    // std::cout << fullFile << std::endl;
     return fullFile;
 }
 

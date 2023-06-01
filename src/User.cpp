@@ -13,25 +13,27 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw,
     user_map["DOB"] = dob;
     user_map["password"] = pw;   
 
-    describe_user();
+    // describe_user();
 
     gen_file();
 };
 
 // Login Existing User
 User::User(std::string id, std::string pw, std::string fileName){
-    filename = fileFolder + fileName + id + ".txt";
-    update_map();
-    loggedIn = checkPassword(pw);
-    if(loggedIn){
-        std::cout << "User successfully Logged in!" << std::endl;
-    } else {
-        user_map.clear();
-        std::cerr << "Incorrect Password or User ID" << std::endl;
-    }
+
+    // loggedIn = checkPassword(pw);
+
+    // if(loggedIn){
+    //     std::cout << "User successfully Logged in!" << std::endl;
+    // } else {
+    //     user_map.clear();
+    //     std::cerr << "Incorrect Password or User ID" << std::endl;
+    // }
 }
 
 User::~User(){};
+
+
 
 void User::update_map(){
     std::ifstream inFile(filename);
@@ -67,7 +69,7 @@ std::string User::get_value(std::string key){
 void User::set_filename(std::string file)
 {
     filename = file;
-    gen_file();
+    std::cout << "In Set_filename" << file << std::endl;
 }
 
 void User::login(std::string inputPw){
@@ -97,7 +99,8 @@ void User::gen_file(){
         }
         filename = fullFile;
         outFile.close();
-    } else {
+    } 
+    else {
         std::cerr << "No Filename detected" << std::endl;
     }
 }

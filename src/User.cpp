@@ -20,7 +20,15 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw,
 
 // Login Existing User
 User::User(std::string id, std::string pw, std::string fileName){
-    return;
+    filename = fileFolder + fileName + id + ".txt";
+    update_map();
+    loggedIn = checkPassword(pw);
+    if(loggedIn){
+        std::cout << "User successfully Logged in!" << std::endl;
+    } else {
+        user_map.clear();
+        std::cerr << "Incorrect Password or User ID" << std::endl;
+    }
 }
 
 User::~User(){};

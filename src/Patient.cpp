@@ -8,6 +8,11 @@ Patient::Patient(std::string name, std::string phone, std::string dob, std::stri
     User::set_filename(genFileName());
 };
 
+Patient::Patient(std::string id, std::string pw): User(id, pw, ""){
+    setPatientID(id);
+    User::set_filename(genFileName(id));
+}
+
 Patient::~Patient(){};
 
 std::string Patient::get_cardNum(){
@@ -40,7 +45,18 @@ void Patient::gen_report(){
 std::string Patient::genFileName(){
 
     std::string fileName = patientID + ".txt";
-    std::string subFolder = "/patients/";
+    // std::string subFolder = "/patients/";
+
+    std::string fullFile = subFolder + fileName;
+
+    std::cout << subFolder << std::endl;
+    return fullFile;
+}
+
+std::string Patient::genFileName(std::string id){
+
+    std::string fileName = id + ".txt";
+    // std::string subFolder = "/patients/";
 
     std::string fullFile = subFolder + fileName;
 
@@ -51,6 +67,10 @@ std::string Patient::genFileName(){
 void Patient::setPatientID(){
     std::string userID = User::genID(10);
     patientID = userID;
+}
+
+void Patient::setPatientID(std::string id){
+    patientID = id;
 }
 
 void Patient::genPayment(){

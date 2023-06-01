@@ -36,6 +36,7 @@ User::~User(){};
 
 
 void User::update_map(){
+
     std::ifstream inFile(filename);
     std::string line;
 
@@ -68,7 +69,7 @@ std::string User::get_value(std::string key){
 
 void User::set_filename(std::string file)
 {
-    filename = file;
+    filename = fileFolder + file;
     std::cout << "In Set_filename" << file << std::endl;
 }
 
@@ -88,16 +89,15 @@ void User::login(std::string inputPw){
 
 void User::gen_file(){
     if(!filename.empty()){
-        std::string fullFile = fileFolder + filename;
-        std::ofstream outFile(fullFile);
+        // std::string fullFile = fileFolder + filename;
+        std::ofstream outFile(filename);
         if(!outFile.is_open()){
-            std::cerr << "Error: Could not open File" << fullFile << std::endl;
+            std::cerr << "Error: Could not open File" << filename << std::endl;
         }
 
         for (const auto& p : user_map){
             outFile << p.first << ": " << p.second << std::endl;
         }
-        filename = fullFile;
         outFile.close();
     } 
     else {

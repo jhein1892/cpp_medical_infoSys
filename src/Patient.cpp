@@ -6,7 +6,7 @@ Patient::Patient(std::string name, std::string phone, std::string dob, std::stri
 {
     setPatientID();
     User::set_filename(genFileName());
-    User::gen_file();
+    User::save_file();
 };
 
 Patient::Patient(std::string id, std::string pw): User(id, pw, ""){

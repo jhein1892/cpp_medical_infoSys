@@ -15,7 +15,7 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw,
 
     // describe_user();
 
-    gen_file();
+    save_file();
 };
 
 // Login Existing User
@@ -32,8 +32,6 @@ User::User(std::string id, std::string pw, std::string fileName){
 }
 
 User::~User(){};
-
-
 
 void User::update_map(){
 
@@ -58,7 +56,6 @@ void User::update_map(){
 
 void User::update_key(std::string key, std::string value){
     user_map[key] = value;
-    gen_file();
     return;
 };
 
@@ -87,7 +84,8 @@ void User::login(std::string inputPw){
     }
 }
 
-void User::gen_file(){
+// Saves file with all changes to local user_map
+void User::save_file(){
     if(!filename.empty()){
         // std::string fullFile = fileFolder + filename;
         std::ofstream outFile(filename);
@@ -96,7 +94,7 @@ void User::gen_file(){
         }
 
         for (const auto& p : user_map){
-            outFile << p.first << ": " << p.second << std::endl;
+            outFile << p.first << ":" << p.second << std::endl;
         }
         outFile.close();
     } 

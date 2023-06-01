@@ -13,12 +13,12 @@
 int main(){
 
     // User newUser = User("Name", "Phone", "DOB", "PW", "Test1.txt");
-    Patient newPatient = Patient("New Name", "Phone", "DOB", "PAssword", "123456789");
+    // Patient newPatient = Patient("New Name", "Phone", "DOB", "PAssword", "123456789");
 
 
     // Doctor newDoctor = Doctor("New Doctor", "Doc Phone", "dob", "paSSWORD", "123dd");
 
-    Patient loginPatient = Patient("xCrN2eQc8u", "PAssword");
+    Patient loginPatient = Patient("ZXt2hwPAQb", "PAssword");
 
     // newPatient.add_appt("Today");
 

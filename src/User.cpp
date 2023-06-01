@@ -126,6 +126,7 @@ std::string User::genID(int length){
 }
 
 bool User::checkPassword(std::string inputPw){
+    std::cout << inputPw << "" << user_map["password"];
     if(user_map["password"] == inputPw){
         return true;
     } else {

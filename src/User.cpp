@@ -11,7 +11,9 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw,
     user_map["name"] = name;
     user_map["phone"] = phone;
     user_map["DOB"] = dob;
-    user_map["password"] = pw;   
+    user_map["password"] = pw;
+
+    loggedIn = true;
 
     // describe_user();
 

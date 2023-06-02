@@ -22,7 +22,7 @@ int main(){
     // Patient loginPatient = Patient("ZXt2hwPAQb", "password");
     // std::cout << loginPatient.get_value("name") << std::endl;
 
-    // loginPatient.describe_user();
+    loginPatient.gen_report();
 
     // newPatient.add_appt("Today");
 

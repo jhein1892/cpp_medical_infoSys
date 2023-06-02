@@ -41,6 +41,7 @@ void Patient::add_appt(std::string date){
 }
 
 void Patient::gen_report(){
+    User::describe_user();
     // Similar to a describe User function: Provide general info about Patient, also provide a description of their appointment schedule.
 
     return;

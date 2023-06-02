@@ -49,7 +49,7 @@ void User::update_key(std::string key, std::string value){
         user_map[key] = value;
         save_file();
     } else {
-        // std::cout << "Please Login to update values" << std::endl;
+        std::cout << "Please Login to update values" << std::endl;
     }
         return;
 };
@@ -103,11 +103,9 @@ void User::save_file(){
 }
 
 void User::describe_user(){
-    // user_map.size();
-
-    
-    
-    std::cout << "Name: " << get_value("name") << "\nPhone: " << get_value("phone") << user_map.size() << std::endl;
+    for(auto it = user_map.begin(); it != user_map.end(); ++it){
+        std::cout << it->first << ": " << it->second << std::endl;
+    }
 }
 
 std::string User::genID(int length){

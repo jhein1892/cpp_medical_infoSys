@@ -19,6 +19,8 @@ int main(){
     // Doctor newDoctor = Doctor("New Doctor", "Doc Phone", "dob", "paSSWORD", "123dd");
 
     Patient loginPatient = Patient("ZXt2hwPAQb", "PAssword");
+    // Patient loginPatient = Patient("ZXt2hwPAQb", "password");
+    std::cout << loginPatient.get_value("name") << std::endl;
 
     // newPatient.add_appt("Today");
 

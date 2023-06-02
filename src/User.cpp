@@ -61,8 +61,12 @@ void User::update_key(std::string key, std::string value){
 };
 
 std::string User::get_value(std::string key){
-    auto it = user_map.find(key);
-    return it->second;
+    if(loggedIn){
+        auto it = user_map.find(key);
+        return it->second;
+    } else {
+        return "Please Login to see this value";
+    }
 }
 
 void User::set_filename(std::string file)

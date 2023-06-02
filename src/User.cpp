@@ -49,7 +49,7 @@ void User::update_key(std::string key, std::string value){
         user_map[key] = value;
         save_file();
     } else {
-        std::cout << "Please Login to update values" << std::endl;
+        // std::cout << "Please Login to update values" << std::endl;
     }
         return;
 };
@@ -126,8 +126,6 @@ std::string User::genID(int length){
 }
 
 bool User::checkPassword(std::string inputPw){
-    std::cout << inputPw << " " << user_map["password"];
-
     // If logged in, check map
     if(loggedIn){ 
         if(user_map["password"] == inputPw){
@@ -153,7 +151,11 @@ bool User::checkPassword(std::string inputPw){
                 std::string value = line.substr(pos + 1);
 
                 if(key == "password"){
-                    return value == inputPw;
+                    if ((value == inputPw) == 0){
+                        return true;
+                    } else {
+                        return false;
+                    }
                 }
             }
         }

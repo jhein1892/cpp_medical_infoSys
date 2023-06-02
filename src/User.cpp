@@ -14,7 +14,7 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw,
     user_map["password"] = pw;
 
     loggedIn = true;
-    
+
     save_file();
 };
 
@@ -103,8 +103,11 @@ void User::save_file(){
 }
 
 void User::describe_user(){
+    // user_map.size();
+
     
-    std::cout << "Name: " << get_value("name") << "\nPhone: " << get_value("phone") << std::endl;
+    
+    std::cout << "Name: " << get_value("name") << "\nPhone: " << get_value("phone") << user_map.size() << std::endl;
 }
 
 std::string User::genID(int length){
@@ -123,10 +126,39 @@ std::string User::genID(int length){
 }
 
 bool User::checkPassword(std::string inputPw){
-    std::cout << inputPw << "" << user_map["password"];
-    if(user_map["password"] == inputPw){
-        return true;
-    } else {
-        return false;
+    std::cout << inputPw << " " << user_map["password"];
+
+    // If logged in, check map
+    if(loggedIn){ 
+        if(user_map["password"] == inputPw){
+            return true;
+        } else {
+            return false;
+        }
+    } 
+
+    // If not logged in will need to reference file
+    else {
+        std::ifstream inFile(filename);
+        std::string line;
+
+        if(!inFile.is_open()){
+            std::cerr << "Error: Could not open file " << filename << std::endl;
+        }
+
+        while(std::getline(inFile, line)){
+            std::size_t pos = line.find(":");
+            if(pos != std::string::npos){
+                std::string key = line.substr(0, pos);
+                std::string value = line.substr(pos + 1);
+
+                if(key == "password"){
+                    return value == inputPw;
+                }
+            }
+        }
+        inFile.close();
     }
+
+    return false;
 }

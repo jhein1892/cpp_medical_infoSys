@@ -12,9 +12,9 @@ Patient::Patient(std::string name, std::string phone, std::string dob, std::stri
 Patient::Patient(std::string id, std::string pw): User(id, pw, ""){
     setPatientID(id);
     User::set_filename(genFileName(id));
+    User::login(pw);
     User::update_map();
     // Try Logging in
-    User::login(pw);
 }
 
 Patient::~Patient(){};

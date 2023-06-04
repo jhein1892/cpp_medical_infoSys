@@ -88,8 +88,9 @@ void Patient::genPayment(){
 
 void Patient::assignDoctor(){
     // So when we get a new patient, we need to assign a new Doctor to it.
+    // Do same logic as checkDoctor, go through the file, check the number of patients assigned to each doctor
+    // Doctor with the least amount of patients is the one we are going to assign new one to.
 
-    // Should I have questions to pick the best one? Or should I just pick the doctor with the least amount of patients?
 };
 
 void Patient::setDoctorID(std::string id){

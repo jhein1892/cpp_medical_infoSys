@@ -82,3 +82,9 @@ void Patient::genPayment(){
     std::cout << "Payment Processed on Card Number: " << cardNumber << std::endl;
     return;
 }
+
+void assignDoctor(){
+    // So when we get a new patient, we need to assign a new Doctor to it.
+
+    // Should I have questions to pick the best one? Or should I just pick the doctor with the least amount of patients?
+};

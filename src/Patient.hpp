@@ -29,6 +29,8 @@ class Patient : public User
         void setPatientID();
         void setPatientID(std::string id);
         void genPayment();
+
+        void assignDoctor();
 };
 
 #endif

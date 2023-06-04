@@ -107,9 +107,12 @@ void Patient::checkDoctor(){
             std::string value = line.substr(pos + 1);
             std::stringstream ss(value);
             std::string patID;
+            
             while(std::getline(ss, patID, ',')){
-                if((patID == patientID) == 0){                
+                if((patID == patientID) == 1){
+                    // std::cout << ("sphere" == "sphere") << std::endl;
                     std::cout << key << std::endl;
+                    std::cout << patID << patientID << std::endl;
                     setDoctorID(key);
                     return;
                 }

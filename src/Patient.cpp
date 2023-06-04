@@ -92,6 +92,10 @@ void Patient::assignDoctor(){
     // Should I have questions to pick the best one? Or should I just pick the doctor with the least amount of patients?
 };
 
+void Patient::setDoctorID(std::string id){
+    doctorID = id;
+}
+
 void Patient::checkDoctor(){
     std::ifstream inFile("../files/doctors/doctors.txt");
     std::string line;
@@ -102,12 +106,17 @@ void Patient::checkDoctor(){
             std::string key = line.substr(0, pos);
             std::string value = line.substr(pos + 1);
             std::stringstream ss(value);
-            std::string patentID;
-            while(std::getline(ss, patientID, ',')){
-                std::cout << patientID << std::endl;
+            std::string patID;
+            while(std::getline(ss, patID, ',')){
+                if((patID == patientID) == 0){                
+                    std::cout << key << std::endl;
+                    setDoctorID(key);
+                    return;
+                }
             }
-
-            std::cout << key << value << std::endl;
         }
     }
+
+    std::cout << "Patient not assigned to Doctor yet" << std::endl;
+
 }

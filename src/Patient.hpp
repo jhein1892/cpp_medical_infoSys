@@ -30,6 +30,8 @@ class Patient : public User
         std::string genFileName(std::string id);
         void setPatientID();
         void setPatientID(std::string id);
+
+        void setDoctorID(std::string id);
         void genPayment();
 
         void assignDoctor();

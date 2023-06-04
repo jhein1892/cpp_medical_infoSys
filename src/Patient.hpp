@@ -15,6 +15,7 @@ class Patient : public User
 
         void add_appt(std::string date);
         void gen_report();
+        void checkDoctor();
 
     protected:
         std::string subFolder = "/patients/";
@@ -22,6 +23,7 @@ class Patient : public User
     private:
         std::string cardNumber;
         std::string patientID;
+        std::string doctorID;
         // std::string nextAppt;
 
         std::string genFileName();

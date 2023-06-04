@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <sstream>
 
 Patient::Patient(std::string name, std::string phone, std::string dob, std::string pw, std::string cardNum): 
     User(name, phone, dob, pw, ""), cardNumber(cardNum)
@@ -100,7 +101,11 @@ void Patient::checkDoctor(){
         if(pos != std::string::npos){
             std::string key = line.substr(0, pos);
             std::string value = line.substr(pos + 1);
-            std::vector<std::string> patientList = value;
+            std::stringstream ss(value);
+            std::string patentID;
+            while(std::getline(ss, patientID, ',')){
+                std::cout << patientID << std::endl;
+            }
 
             std::cout << key << value << std::endl;
         }

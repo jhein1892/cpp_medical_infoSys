@@ -98,9 +98,10 @@ void Patient::setDoctorID(std::string id){
 }
 
 void Patient::checkDoctor(){
+
+    // I should look into moving this to another function, and actually putting the doctor patient list into a vector. Maybe move into the Users class...
     std::ifstream inFile("../files/doctors/doctors.txt");
     std::string line;
-
     while(std::getline(inFile, line)){
         std::size_t pos = line.find(":");
         if(pos != std::string::npos){

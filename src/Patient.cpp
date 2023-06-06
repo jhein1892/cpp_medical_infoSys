@@ -93,6 +93,7 @@ void Patient::assignDoctor(){
     // Do same logic as checkDoctor, go through the file, check the number of patients assigned to each doctor
     std::ifstream inFile("../files/doctors/doctors.txt");
     std::string line;
+    std::map <std::string, std::string> patient_map;
     std::map <std::string, int> doctorCount;
 
     while(std::getline(inFile, line)){
@@ -102,6 +103,8 @@ void Patient::assignDoctor(){
             std::string value = line.substr(pos + 1);
             std::stringstream ss(value);
             std::string patID;
+
+            patient_map[key] = value;
 
             int count = 0;
 
@@ -113,7 +116,6 @@ void Patient::assignDoctor(){
             doctorCount[key] = count;
         }
     }
-    // Doctor with the least amount of patients is the one we are going to assign new one to.
 
     int currentLow = doctorCount.begin()->second;
     std::string currentKey = doctorCount.begin()->first;
@@ -127,7 +129,13 @@ void Patient::assignDoctor(){
         }
     }
 
-    std::cout << currentKey << ": " << currentLow << std::endl;;
+    std::cout << currentKey << ": " << currentLow << std::endl;
+    // Assign Patient to this doctor
+    setDoctorID(currentKey);
+
+    // Update doctor/patient list
+
+
 };
 
 void Patient::setDoctorID(std::string id){

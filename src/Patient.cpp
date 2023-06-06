@@ -115,11 +115,19 @@ void Patient::assignDoctor(){
     }
     // Doctor with the least amount of patients is the one we are going to assign new one to.
 
+    int currentLow = doctorCount.begin()->second;
+    std::string currentKey = doctorCount.begin()->first;
+
     for(auto it = doctorCount.begin(); it != doctorCount.end(); ++it){
-        std::cout << it->first << ": " << it->second << std::endl;
+        if(it->second < currentLow){
+            currentLow = it->second;
+            currentKey = it->first;
+        } else {
+            continue;
+        }
     }
 
-
+    std::cout << currentKey << ": " << currentLow << std::endl;;
 };
 
 void Patient::setDoctorID(std::string id){
@@ -142,8 +150,8 @@ void Patient::checkDoctor(){
             while(std::getline(ss, patID, ',')){
                 if((patID == patientID) == 1){
                     // std::cout << ("sphere" == "sphere") << std::endl;
-                    std::cout << key << std::endl;
-                    std::cout << patID << patientID << std::endl;
+                    // std::cout << key << std::endl;
+                    // std::cout << patID << patientID << std::endl;
                     setDoctorID(key);
                     return;
                 }

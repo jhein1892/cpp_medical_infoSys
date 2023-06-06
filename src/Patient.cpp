@@ -17,6 +17,8 @@ Patient::Patient(std::string id, std::string pw): User(id, pw, ""){
     User::set_filename(genFileName(id));
     User::login(pw);
     User::update_map();
+
+    Patient::assignDoctor();
     // Try Logging in
 }
 
@@ -89,7 +91,34 @@ void Patient::genPayment(){
 void Patient::assignDoctor(){
     // So when we get a new patient, we need to assign a new Doctor to it.
     // Do same logic as checkDoctor, go through the file, check the number of patients assigned to each doctor
+    std::ifstream inFile("../files/doctors/doctors.txt");
+    std::string line;
+    std::map <std::string, int> doctorCount;
+
+    while(std::getline(inFile, line)){
+        std::size_t pos = line.find(":");
+        if(pos != std::string::npos){
+            std::string key = line.substr(0, pos);
+            std::string value = line.substr(pos + 1);
+            std::stringstream ss(value);
+            std::string patID;
+
+            int count = 0;
+
+            while(std::getline(ss, patID, ',')){
+                // This is where the logic is going to change from the checkDoctor function
+                ++count;
+
+            }
+            doctorCount[key] = count;
+        }
+    }
     // Doctor with the least amount of patients is the one we are going to assign new one to.
+
+    for(auto it = doctorCount.begin(); it != doctorCount.end(); ++it){
+        std::cout << it->first << ": " << it->second << std::endl;
+    }
+
 
 };
 

@@ -89,13 +89,13 @@ void Patient::genPayment(){
 }
 
 void Patient::assignDoctor(){
-    // So when we get a new patient, we need to assign a new Doctor to it.
-    // Do same logic as checkDoctor, go through the file, check the number of patients assigned to each doctor
-    std::ifstream inFile("../files/doctors/doctors.txt");
-    std::string line;
+    const std::string doctorList = "../files/doctors/doctors.txt";
     std::map <std::string, std::string> patient_map;
     std::map <std::string, int> doctorCount;
+    std::ifstream inFile(doctorList);
+    std::string line;
 
+    // Getting The list of patients for each Doctor
     while(std::getline(inFile, line)){
         std::size_t pos = line.find(":");
         if(pos != std::string::npos){
@@ -116,9 +116,9 @@ void Patient::assignDoctor(){
             doctorCount[key] = count;
         }
     }
-
     inFile.close();
 
+    // Working on updating the list of Patients in the proper file.
     int currentLow = doctorCount.begin()->second;
     std::string currentKey = doctorCount.begin()->first;
 
@@ -130,17 +130,16 @@ void Patient::assignDoctor(){
             continue;
         }
     }
-    
+
+    setDoctorID(currentKey);
+
     if(currentLow > 0){
         patient_map[currentKey] = patient_map[currentKey] + "," + patientID;
     } else {
         patient_map[currentKey] = patientID;
     }
-    // Assign Patient to this doctor
-    setDoctorID(currentKey);
 
-    // Update doctor/patient list
-    std::ofstream outFile("../files/doctors/doctors.txt");
+    std::ofstream outFile(doctorList);
     if(!outFile.is_open()){
         std::cerr << "Error: Could not open File ../files/doctors/doctors.txt" << std::endl;
     }

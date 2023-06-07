@@ -130,8 +130,12 @@ void Patient::assignDoctor(){
             continue;
         }
     }
-
-    std::cout << currentKey << ": " << currentLow << std::endl;
+    
+    if(currentLow > 0){
+        patient_map[currentKey] = patient_map[currentKey] + "," + patientID;
+    } else {
+        patient_map[currentKey] = patientID;
+    }
     // Assign Patient to this doctor
     setDoctorID(currentKey);
 

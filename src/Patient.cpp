@@ -117,6 +117,8 @@ void Patient::assignDoctor(){
         }
     }
 
+    inFile.close();
+
     int currentLow = doctorCount.begin()->second;
     std::string currentKey = doctorCount.begin()->first;
 
@@ -134,8 +136,16 @@ void Patient::assignDoctor(){
     setDoctorID(currentKey);
 
     // Update doctor/patient list
+    std::ofstream outFile("../files/doctors/doctors.txt");
+    if(!outFile.is_open()){
+        std::cerr << "Error: Could not open File ../files/doctors/doctors.txt" << std::endl;
+    }
 
+    for(const auto& p : patient_map){
+         outFile << p.first << ":" << p.second << std::endl;
+    }
 
+    outFile.close();
 };
 
 void Patient::setDoctorID(std::string id){

@@ -83,25 +83,6 @@ void User::login(std::string inputPw){
     }
 }
 
-// Saves file with all changes to local user_map
-// void User::save_file(){
-//     if(!filename.empty()){
-//         // std::string fullFile = fileFolder + filename;
-//         std::ofstream outFile(filename);
-//         if(!outFile.is_open()){
-//             std::cerr << "Error: Could not open File" << filename << std::endl;
-//         }
-
-//         for (const auto& p : user_map){
-//             outFile << p.first << ":" << p.second << std::endl;
-//         }
-//         outFile.close();
-//     } 
-//     else {
-//         std::cerr << "No Filename detected" << std::endl;
-//     }
-// }
-
 void User::save_file(std::string input_file, std::map<std::string, std::string> input_map){
     if(!filename.empty()){
         // std::string fullFile = fileFolder + filename;

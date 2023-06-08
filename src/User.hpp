@@ -30,7 +30,6 @@ class User
         std::map<std::string, std::string> user_map;
         bool loggedIn = false;
 
-        // void save_file();
         void save_file(std::string input_file, std::map<std::string, std::string> input_map);
         bool checkPassword(std::string inputPw);
         std::string genID(int length);

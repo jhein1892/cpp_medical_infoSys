@@ -55,6 +55,34 @@ void Patient::gen_report(){
     return;
 }
 
+bool Patient::checkDoctor(){
+
+    // I should look into moving this to another function, and actually putting the doctor patient list into a vector. Maybe move into the Users class...
+    std::ifstream inFile("../files/doctors/doctors.txt");
+    std::string line;
+    while(std::getline(inFile, line)){
+        std::size_t pos = line.find(":");
+        if(pos != std::string::npos){
+            std::string key = line.substr(0, pos);
+            std::string value = line.substr(pos + 1);
+            std::stringstream ss(value);
+            std::string patID;
+            
+            while(std::getline(ss, patID, ',')){
+                if((patID == patientID) == 1){
+                    setDoctorID(key);
+                    std::cout << "Doctor ID: " << key << std::endl;
+                    return true;
+                }
+            }
+        }
+    }
+
+    std::cout << "Patient not assigned to Doctor yet" << std::endl;
+    return false;
+
+}
+
 std::string Patient::genFileName(){
 
     std::string fileName = patientID + ".txt";
@@ -84,6 +112,10 @@ void Patient::setPatientID(){
 
 void Patient::setPatientID(std::string id){
     patientID = id;
+}
+
+void Patient::setDoctorID(std::string id){
+    doctorID = id;
 }
 
 void Patient::genPayment(){
@@ -144,35 +176,3 @@ void Patient::assignDoctor(){
 
     save_file(doctorList, patient_map);
 };
-
-void Patient::setDoctorID(std::string id){
-    doctorID = id;
-}
-
-bool Patient::checkDoctor(){
-
-    // I should look into moving this to another function, and actually putting the doctor patient list into a vector. Maybe move into the Users class...
-    std::ifstream inFile("../files/doctors/doctors.txt");
-    std::string line;
-    while(std::getline(inFile, line)){
-        std::size_t pos = line.find(":");
-        if(pos != std::string::npos){
-            std::string key = line.substr(0, pos);
-            std::string value = line.substr(pos + 1);
-            std::stringstream ss(value);
-            std::string patID;
-            
-            while(std::getline(ss, patID, ',')){
-                if((patID == patientID) == 1){
-                    setDoctorID(key);
-                    std::cout << "Doctor ID: " << key << std::endl;
-                    return true;
-                }
-            }
-        }
-    }
-
-    std::cout << "Patient not assigned to Doctor yet" << std::endl;
-    return false;
-
-}

@@ -83,6 +83,12 @@ void User::login(std::string inputPw){
     }
 }
 
+void User::describe_user(){
+    for(auto it = user_map.begin(); it != user_map.end(); ++it){
+        std::cout << it->first << ": " << it->second << std::endl;
+    }
+}
+
 void User::save_file(std::string input_file, std::map<std::string, std::string> input_map){
     if(!filename.empty()){
         // std::string fullFile = fileFolder + filename;
@@ -99,27 +105,6 @@ void User::save_file(std::string input_file, std::map<std::string, std::string> 
     else {
         std::cerr << "No Filename detected" << std::endl;
     }
-}
-
-void User::describe_user(){
-    for(auto it = user_map.begin(); it != user_map.end(); ++it){
-        std::cout << it->first << ": " << it->second << std::endl;
-    }
-}
-
-std::string User::genID(int length){
-    std::string characters = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    std::string userID;
-
-    std::srand(static_cast<unsigned>(std::time(nullptr)));
-
-    for (int i = 0; i < length; i++){
-        int randomIndex = std::rand() % characters.length();
-        userID += characters[randomIndex];
-    };
-    std::cout << userID << std::endl;
-
-    return userID;
 }
 
 bool User::checkPassword(std::string inputPw){
@@ -160,4 +145,19 @@ bool User::checkPassword(std::string inputPw){
     }
 
     return false;
+}
+
+std::string User::genID(int length){
+    std::string characters = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    std::string userID;
+
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
+
+    for (int i = 0; i < length; i++){
+        int randomIndex = std::rand() % characters.length();
+        userID += characters[randomIndex];
+    };
+    std::cout << userID << std::endl;
+
+    return userID;
 }

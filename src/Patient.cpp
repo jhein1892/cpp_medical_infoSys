@@ -18,7 +18,10 @@ Patient::Patient(std::string id, std::string pw): User(id, pw, ""){
     User::login(pw);
     User::update_map();
 
-    Patient::assignDoctor();
+    if(!checkDoctor()){
+        assignDoctor();
+    }
+
     // Try Logging in
 }
 
@@ -146,7 +149,7 @@ void Patient::setDoctorID(std::string id){
     doctorID = id;
 }
 
-void Patient::checkDoctor(){
+bool Patient::checkDoctor(){
 
     // I should look into moving this to another function, and actually putting the doctor patient list into a vector. Maybe move into the Users class...
     std::ifstream inFile("../files/doctors/doctors.txt");
@@ -162,12 +165,14 @@ void Patient::checkDoctor(){
             while(std::getline(ss, patID, ',')){
                 if((patID == patientID) == 1){
                     setDoctorID(key);
-                    return;
+                    std::cout << "Doctor ID: " << key << std::endl;
+                    return true;
                 }
             }
         }
     }
 
     std::cout << "Patient not assigned to Doctor yet" << std::endl;
+    return false;
 
 }

@@ -15,7 +15,7 @@ class Patient : public User
 
         void add_appt(std::string date);
         void gen_report();
-        void checkDoctor();
+        bool checkDoctor();
 
     protected:
         std::string subFolder = "/patients/";

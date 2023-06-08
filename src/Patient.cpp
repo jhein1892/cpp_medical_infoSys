@@ -170,9 +170,6 @@ void Patient::checkDoctor(){
             
             while(std::getline(ss, patID, ',')){
                 if((patID == patientID) == 1){
-                    // std::cout << ("sphere" == "sphere") << std::endl;
-                    // std::cout << key << std::endl;
-                    // std::cout << patID << patientID << std::endl;
                     setDoctorID(key);
                     return;
                 }

@@ -102,6 +102,24 @@ void User::save_file(){
     }
 }
 
+void User::save_file(std::string input_file, std::map<std::string, std::string> input_map){
+    if(!filename.empty()){
+        // std::string fullFile = fileFolder + filename;
+        std::ofstream outFile(input_file);
+        if(!outFile.is_open()){
+            std::cerr << "Error: Could not open File" << input_file << std::endl;
+        }
+
+        for (const auto& p : input_map){
+            outFile << p.first << ":" << p.second << std::endl;
+        }
+        outFile.close();
+    } 
+    else {
+        std::cerr << "No Filename detected" << std::endl;
+    }
+}
+
 void User::describe_user(){
     for(auto it = user_map.begin(); it != user_map.end(); ++it){
         std::cout << it->first << ": " << it->second << std::endl;

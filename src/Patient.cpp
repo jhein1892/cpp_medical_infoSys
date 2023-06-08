@@ -9,7 +9,7 @@ Patient::Patient(std::string name, std::string phone, std::string dob, std::stri
 {
     setPatientID();
     User::set_filename(genFileName());
-    User::save_file();
+    User::save_file(filename, user_map);
 };
 
 Patient::Patient(std::string id, std::string pw): User(id, pw, ""){

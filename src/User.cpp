@@ -15,7 +15,7 @@ User::User(std::string name, std::string phone, std::string dob, std::string pw,
 
     loggedIn = true;
 
-    save_file();
+    save_file(filename, user_map);
 };
 
 // Login Existing User
@@ -47,7 +47,7 @@ void User::update_map(){
 void User::update_key(std::string key, std::string value){
     if(loggedIn){
         user_map[key] = value;
-        save_file();
+        save_file(filename, user_map);
     } else {
         std::cout << "Please Login to update values" << std::endl;
     }
@@ -84,23 +84,23 @@ void User::login(std::string inputPw){
 }
 
 // Saves file with all changes to local user_map
-void User::save_file(){
-    if(!filename.empty()){
-        // std::string fullFile = fileFolder + filename;
-        std::ofstream outFile(filename);
-        if(!outFile.is_open()){
-            std::cerr << "Error: Could not open File" << filename << std::endl;
-        }
+// void User::save_file(){
+//     if(!filename.empty()){
+//         // std::string fullFile = fileFolder + filename;
+//         std::ofstream outFile(filename);
+//         if(!outFile.is_open()){
+//             std::cerr << "Error: Could not open File" << filename << std::endl;
+//         }
 
-        for (const auto& p : user_map){
-            outFile << p.first << ":" << p.second << std::endl;
-        }
-        outFile.close();
-    } 
-    else {
-        std::cerr << "No Filename detected" << std::endl;
-    }
-}
+//         for (const auto& p : user_map){
+//             outFile << p.first << ":" << p.second << std::endl;
+//         }
+//         outFile.close();
+//     } 
+//     else {
+//         std::cerr << "No Filename detected" << std::endl;
+//     }
+// }
 
 void User::save_file(std::string input_file, std::map<std::string, std::string> input_map){
     if(!filename.empty()){

@@ -139,16 +139,7 @@ void Patient::assignDoctor(){
         patient_map[currentKey] = patientID;
     }
 
-    std::ofstream outFile(doctorList);
-    if(!outFile.is_open()){
-        std::cerr << "Error: Could not open File ../files/doctors/doctors.txt" << std::endl;
-    }
-
-    for(const auto& p : patient_map){
-         outFile << p.first << ":" << p.second << std::endl;
-    }
-
-    outFile.close();
+    save_file(doctorList, patient_map);
 };
 
 void Patient::setDoctorID(std::string id){

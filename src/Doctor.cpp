@@ -20,9 +20,21 @@ void Doctor::update_id(std::string id){
     doctorID = id;
 }
 
-void Doctor::updatePatients(){};
+void Doctor::updatePatients(){
+    // This is going to establish the list of patients that the doctor has
+    //  Run through the doctor list
 
-void Doctor::dropPatient(){};
+    // For each line in txt file
+        // If it->first is doctorID
+        // Split it->seconds and for each patient ID we wil add it to a vector that hold all ids
+};
+
+void Doctor::dropPatient(){
+    // Remove a patient from the list of patients.
+    // Take id which is passed in, and iterate through patientID vector, once we get it, we are going to remove the id and resize the vector.
+    // At this point we need to re-write the dotors.txt file to hold the right info.
+        // So we will need to create a map with the update values (find a way of turning a vector into a string)
+};
 
 std::string Doctor::genFileName(){
     std::string fileName = get_id();

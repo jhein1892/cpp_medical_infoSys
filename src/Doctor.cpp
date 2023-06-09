@@ -20,6 +20,10 @@ void Doctor::update_id(std::string id){
     doctorID = id;
 }
 
+void Doctor::updatePatients(){};
+
+void Doctor::dropPatient(){};
+
 std::string Doctor::genFileName(){
     std::string fileName = get_id();
     std::string subFolder = "/doctors/";

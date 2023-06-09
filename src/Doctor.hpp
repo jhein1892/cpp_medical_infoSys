@@ -13,13 +13,18 @@ class Doctor : public User {
 
         void update_id(std::string id);
 
+        void updatePatients();
+        void dropPatient();
+
+
+
         // bool check_availabiltiy
         // void book_appointment(std::string userID)
 
     private:
         std::string doctorID;
         std::string genFileName();
-        
+
 };
 
 #endif

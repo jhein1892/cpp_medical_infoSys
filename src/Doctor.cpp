@@ -1,5 +1,7 @@
 #include "Doctor.hpp"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 Doctor::Doctor(std::string name, std::string phone, std::string dob, std::string pw, std::string id): 
 User(name, phone, dob, pw, ""), doctorID(id) 
@@ -21,12 +23,32 @@ void Doctor::update_id(std::string id){
 }
 
 void Doctor::updatePatients(){
-    // This is going to establish the list of patients that the doctor has
-    //  Run through the doctor list
 
-    // For each line in txt file
-        // If it->first is doctorID
-        // Split it->seconds and for each patient ID we wil add it to a vector that hold all ids
+    // This is going to establish the list of patients that the doctor has
+    std::ifstream inFile("../files/doctors/doctors.txt");
+    std::string line;
+    while(std::getline(inFile, line)){
+        std::size_t pos = line.find(":");
+        if(pos != std::string::npos){
+            std::string key = line.substr(0, pos);
+            std::string value = line.substr(pos + 1);
+            std::stringstream ss(value);
+            std::string patID;
+            // If it->first is doctorID
+            if(key == doctorID){
+                // Split it->seconds and for each patient ID we wil add it to a vector that hold all ids
+                while(std::getline(ss, patID, ',')){
+                    // Push new ID to to patientList vector
+                    patientList.push_back(patID);
+                }
+            }
+            
+        }
+    }
+
+    // for(int i = 0; i < patientList.size(); i++){
+    //     std::cout << patientList[i] << std::endl;
+    // }
 };
 
 void Doctor::dropPatient(){

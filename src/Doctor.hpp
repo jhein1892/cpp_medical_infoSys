@@ -3,6 +3,7 @@
 
 #include "User.hpp"
 #include <string>
+#include <vector>
 
 class Doctor : public User {
     public: 
@@ -25,6 +26,7 @@ class Doctor : public User {
         std::string doctorID;
         std::string genFileName();
 
+        std::vector<std::string> patientList;
 };
 
 #endif

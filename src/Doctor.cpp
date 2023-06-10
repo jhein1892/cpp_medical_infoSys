@@ -50,13 +50,6 @@ void Doctor::updatePatients(){
 
 void Doctor::dropPatient(std::string patientID){
 
-    // std::cout << patientID << std::endl;
-    // std::cout << "Starting with: " << std::endl;
-    // for(int i = 0; i < patientList.size(); i++){
-    //     std::cout << patientList[i] << std::endl;
-    // }
-
-
     // Remove a patient from the list of patients.
     for(int i = 0; i < patientList.size(); i++){
         if(patientID == patientList[i]){
@@ -78,7 +71,7 @@ void Doctor::dropPatient(std::string patientID){
     std::map <std::string, std::string> patient_map;
     std::ifstream inFile(doctorList);
     std::string line;
-    
+
     // At this point we need to re-write the dotors.txt file to hold the right info.
     while(std::getline(inFile, line)){
         std::size_t pos = line.find(":");
@@ -90,16 +83,15 @@ void Doctor::dropPatient(std::string patientID){
 
             if(key == doctorID){
                 patient_map[key] = patientString;
-            }
+            } else {
+                patient_map[key] = value;
 
+            }
         }
     }
     inFile.close();
 
     save_file(doctorList, patient_map);
-
-
-        // So we will need to create a map with the update values (find a way of turning a vector into a string)
 };
 
 std::string Doctor::genFileName(){

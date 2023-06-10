@@ -78,14 +78,11 @@ void Doctor::dropPatient(std::string patientID){
         if(pos != std::string::npos){
             std::string key = line.substr(0, pos);
             std::string value = line.substr(pos + 1);
-            std::stringstream ss(value);
-            std::string patID;
 
             if(key == doctorID){
                 patient_map[key] = patientString;
             } else {
                 patient_map[key] = value;
-
             }
         }
     }

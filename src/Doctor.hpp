@@ -15,9 +15,7 @@ class Doctor : public User {
         void update_id(std::string id);
 
         void updatePatients();
-        void dropPatient();
-
-
+        void dropPatient(std::string patientID);
 
         // bool check_availabiltiy
         // void book_appointment(std::string userID)

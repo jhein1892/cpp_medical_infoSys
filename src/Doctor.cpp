@@ -42,7 +42,6 @@ void Doctor::updatePatients(){
                     patientList.push_back(patID);
                 }
             }
-            
         }
     }
 
@@ -51,7 +50,9 @@ void Doctor::updatePatients(){
     // }
 };
 
-void Doctor::dropPatient(){
+void Doctor::dropPatient(std::string patientID){
+
+    std::cout << patientID << std::endl;
     // Remove a patient from the list of patients.
     // Take id which is passed in, and iterate through patientID vector, once we get it, we are going to remove the id and resize the vector.
     // At this point we need to re-write the dotors.txt file to hold the right info.

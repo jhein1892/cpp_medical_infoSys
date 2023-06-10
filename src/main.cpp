@@ -20,6 +20,8 @@ int main(){
 
     newDoctor.updatePatients();
 
+    newDoctor.dropPatient("IXNclWCex6");
+
     // Patient loginPatient = Patient("ZXt2hwPAQb", "PAssword");
     // loginPatient.checkDoctor();
     // Patient loginPatient = Patient("ZXt2hwPAQb", "password");

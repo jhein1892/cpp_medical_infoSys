@@ -65,7 +65,7 @@ void Doctor::dropPatient(std::string patientID){
     }
 
     std::string patientString;
-
+    // Rewrite the patientList string for Map update.
     for(int i = 0; i < patientList.size(); i++){
         if(patientString.empty()){
             patientString = patientList[i];
@@ -74,10 +74,31 @@ void Doctor::dropPatient(std::string patientID){
         }
     }
 
-    std::cout << patientString << std::endl;
-
-
+    const std::string doctorList = "../files/doctors/doctors.txt";
+    std::map <std::string, std::string> patient_map;
+    std::ifstream inFile(doctorList);
+    std::string line;
+    
     // At this point we need to re-write the dotors.txt file to hold the right info.
+    while(std::getline(inFile, line)){
+        std::size_t pos = line.find(":");
+        if(pos != std::string::npos){
+            std::string key = line.substr(0, pos);
+            std::string value = line.substr(pos + 1);
+            std::stringstream ss(value);
+            std::string patID;
+
+            if(key == doctorID){
+                patient_map[key] = patientString;
+            }
+
+        }
+    }
+    inFile.close();
+
+    save_file(doctorList, patient_map);
+
+
         // So we will need to create a map with the update values (find a way of turning a vector into a string)
 };
 

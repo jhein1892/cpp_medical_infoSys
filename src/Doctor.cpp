@@ -45,16 +45,38 @@ void Doctor::updatePatients(){
         }
     }
 
-    // for(int i = 0; i < patientList.size(); i++){
-    //     std::cout << patientList[i] << std::endl;
-    // }
+    
 };
 
 void Doctor::dropPatient(std::string patientID){
 
-    std::cout << patientID << std::endl;
+    // std::cout << patientID << std::endl;
+    // std::cout << "Starting with: " << std::endl;
+    // for(int i = 0; i < patientList.size(); i++){
+    //     std::cout << patientList[i] << std::endl;
+    // }
+
+
     // Remove a patient from the list of patients.
-    // Take id which is passed in, and iterate through patientID vector, once we get it, we are going to remove the id and resize the vector.
+    for(int i = 0; i < patientList.size(); i++){
+        if(patientID == patientList[i]){
+            patientList.erase(patientList.begin() + i);
+        }
+    }
+
+    std::string patientString;
+
+    for(int i = 0; i < patientList.size(); i++){
+        if(patientString.empty()){
+            patientString = patientList[i];
+        } else {
+            patientString += "," + patientList[i]; 
+        }
+    }
+
+    std::cout << patientString << std::endl;
+
+
     // At this point we need to re-write the dotors.txt file to hold the right info.
         // So we will need to create a map with the update values (find a way of turning a vector into a string)
 };

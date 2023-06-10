@@ -19,12 +19,12 @@ class Doctor : public User {
 
         // bool check_availabiltiy
         // void book_appointment(std::string userID)
+        std::vector<std::string> patientList;
 
     private:
         std::string doctorID;
         std::string genFileName();
 
-        std::vector<std::string> patientList;
 };
 
 #endif

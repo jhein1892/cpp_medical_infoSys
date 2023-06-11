@@ -13,7 +13,7 @@
 int main(){
 
     // User newUser = User("Name", "Phone", "DOB", "PW", "Test1.txt");
-    Patient newPatient = Patient("New Name", "Phone", "DOB", "PAssword", "123456789");
+    // Patient newPatient = Patient("New Name", "Phone", "DOB", "PAssword", "123456789");
 
 
     // Doctor newDoctor = Doctor("New Doctor", "Doc Phone", "dob", "paSSWORD", "123dd");
@@ -22,7 +22,7 @@ int main(){
 
     // newDoctor.dropPatient("IXNclWCex6");
 
-    // Patient loginPatient = Patient("ZXt2hwPAQb", "PAssword");
+    Patient loginPatient = Patient("ZXt2hwPAQb", "PAssword");
     // loginPatient.checkDoctor();
     // Patient loginPatient = Patient("ZXt2hwPAQb", "password");
     // std::cout << loginPatient.get_value("name") << std::endl;

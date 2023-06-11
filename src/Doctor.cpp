@@ -8,7 +8,6 @@ User(name, phone, dob, pw, ""), doctorID(id)
 {
     User::set_filename(genFileName());
     std::cout << get_id() << std::endl;
-    // Make sure to add new doctor to doctor:patient list
 }
 
 Doctor::~Doctor(){};
@@ -44,8 +43,6 @@ void Doctor::updatePatients(){
             }
         }
     }
-
-    
 };
 
 void Doctor::dropPatient(std::string patientID){
@@ -87,7 +84,6 @@ void Doctor::dropPatient(std::string patientID){
         }
     }
     inFile.close();
-
     save_file(doctorList, patient_map);
 };
 

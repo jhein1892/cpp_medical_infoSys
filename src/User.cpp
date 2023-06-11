@@ -147,6 +147,10 @@ bool User::checkPassword(std::string inputPw){
     return false;
 }
 
+void getDoctorList(){
+
+};
+
 std::string User::genID(int length){
     std::string characters = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     std::string userID;

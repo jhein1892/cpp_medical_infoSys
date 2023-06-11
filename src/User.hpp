@@ -32,6 +32,8 @@ class User
 
         void save_file(std::string input_file, std::map<std::string, std::string> input_map);
         bool checkPassword(std::string inputPw);
+        void getDoctorList();
+
         std::string genID(int length);
         std::string filename;
 

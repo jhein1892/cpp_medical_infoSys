@@ -23,7 +23,6 @@ void Doctor::update_id(std::string id){
 
 void Doctor::updatePatients(){
     getDoctorList();
-
     // Updates the patient list for this Doctor
     for(auto it = doctorList.begin(); it != doctorList.end(); ++it){
         if(it->first == doctorID){
@@ -39,20 +38,18 @@ void Doctor::updatePatients(){
 void Doctor::dropPatient(std::string patientID){
 
     // Remove a patient from the list of patients.
+    std::string patientString;
     for(int i = 0; i < patientList.size(); i++){
         if(patientID == patientList[i]){
-            patientList.erase(patientList.begin() + i);
-        }
-    };
-
-    std::string patientString;
-    // Rewrite the patientList string for Map update.
-    for(int i = 0; i < patientList.size(); i++){
-        if(patientString.empty()){
-            patientString = patientList[i];
+            continue;
         } else {
-            patientString += "," + patientList[i]; 
+            if(patientString.empty()){
+                patientString = patientList[i];
+            } else {
+                patientString += "," + patientList[i]; 
+            }
         }
+
     };
 
     for(auto it = doctorList.begin(); it != doctorList.end(); ++it){

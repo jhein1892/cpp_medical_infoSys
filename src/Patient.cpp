@@ -10,6 +10,7 @@ Patient::Patient(std::string name, std::string phone, std::string dob, std::stri
     setPatientID();
     User::set_filename(genFileName());
     User::save_file(filename, user_map);
+    assignDoctor();
 };
 
 Patient::Patient(std::string id, std::string pw): User(id, pw, ""){
@@ -124,34 +125,20 @@ void Patient::genPayment(){
 }
 
 void Patient::assignDoctor(){
-    const std::string doctorList = "../files/doctors/doctors.txt";
-    std::map <std::string, std::string> patient_map;
     std::map <std::string, int> doctorCount;
-    std::ifstream inFile(doctorList);
-    std::string line;
 
-    // Getting The list of patients for each Doctor
-    while(std::getline(inFile, line)){
-        std::size_t pos = line.find(":");
-        if(pos != std::string::npos){
-            std::string key = line.substr(0, pos);
-            std::string value = line.substr(pos + 1);
-            std::stringstream ss(value);
-            std::string patID;
+    getDoctorList();
 
-            patient_map[key] = value;
+    for(auto it = doctorList.begin(); it != doctorList.end(); ++it){
+        std::stringstream ss(it->second);
+        std::string patID;
+        int count = 0;
 
-            int count = 0;
-
-            while(std::getline(ss, patID, ',')){
-                // This is where the logic is going to change from the checkDoctor function
-                ++count;
-
-            }
-            doctorCount[key] = count;
+        while(std::getline(ss, patID, ',')){
+            ++count;
         }
+        doctorCount[it->first] = count;
     }
-    inFile.close();
 
     // Working on updating the list of Patients in the proper file.
     int currentLow = doctorCount.begin()->second;
@@ -169,10 +156,10 @@ void Patient::assignDoctor(){
     setDoctorID(currentKey);
 
     if(currentLow > 0){
-        patient_map[currentKey] = patient_map[currentKey] + "," + patientID;
+        doctorList[currentKey] = doctorList[currentKey] + "," + patientID;
     } else {
-        patient_map[currentKey] = patientID;
+        doctorList[currentKey] = patientID;
     }
 
-    save_file(doctorList, patient_map);
+    save_file(doctorListFile, doctorList);
 };

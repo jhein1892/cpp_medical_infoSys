@@ -49,7 +49,6 @@ void Doctor::dropPatient(std::string patientID){
                 patientString += "," + patientList[i]; 
             }
         }
-
     };
 
     for(auto it = doctorList.begin(); it != doctorList.end(); ++it){

@@ -37,10 +37,10 @@ class User
 
         std::string genID(int length);
         std::string filename;
+        std::string doctorListFile = "../files/doctors/doctors.txt";
 
     private:
         std::string fileFolder = "../files/";
-        std::string doctorListFile = "../files/doctors/doctors.txt";
 
         // std::string encryptPW(){};
         // std::string decryptPW(){};

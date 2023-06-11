@@ -158,6 +158,7 @@ void User::getDoctorList(){
             doctorList[key] = value;
         }
     }
+    inFile.close();
 };
 
 std::string User::genID(int length){

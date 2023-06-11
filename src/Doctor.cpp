@@ -22,6 +22,9 @@ void Doctor::update_id(std::string id){
 }
 
 void Doctor::updatePatients(){
+    getDoctorList();
+
+    // Updates the patient list for this Doctor
     for(auto it = doctorList.begin(); it != doctorList.end(); ++it){
         if(it->first == doctorID){
             std::stringstream ss(it->second);
@@ -40,7 +43,7 @@ void Doctor::dropPatient(std::string patientID){
         if(patientID == patientList[i]){
             patientList.erase(patientList.begin() + i);
         }
-    }
+    };
 
     std::string patientString;
     // Rewrite the patientList string for Map update.
@@ -50,29 +53,15 @@ void Doctor::dropPatient(std::string patientID){
         } else {
             patientString += "," + patientList[i]; 
         }
-    }
+    };
 
-    const std::string doctorList = "../files/doctors/doctors.txt";
-    std::map <std::string, std::string> patient_map;
-    std::ifstream inFile(doctorList);
-    std::string line;
-
-    // At this point we need to re-write the dotors.txt file to hold the right info.
-    while(std::getline(inFile, line)){
-        std::size_t pos = line.find(":");
-        if(pos != std::string::npos){
-            std::string key = line.substr(0, pos);
-            std::string value = line.substr(pos + 1);
-
-            if(key == doctorID){
-                patient_map[key] = patientString;
-            } else {
-                patient_map[key] = value;
+    for(auto it = doctorList.begin(); it != doctorList.end(); ++it){
+        if(it->first == doctorID){
+            it->second = patientString;
             }
         }
-    }
-    inFile.close();
-    save_file(doctorList, patient_map);
+
+    User::save_file(doctorListFile, doctorList);
 };
 
 std::string Doctor::genFileName(){

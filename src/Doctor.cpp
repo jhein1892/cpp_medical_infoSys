@@ -22,24 +22,12 @@ void Doctor::update_id(std::string id){
 }
 
 void Doctor::updatePatients(){
-
-    // This is going to establish the list of patients that the doctor has
-    std::ifstream inFile("../files/doctors/doctors.txt");
-    std::string line;
-    while(std::getline(inFile, line)){
-        std::size_t pos = line.find(":");
-        if(pos != std::string::npos){
-            std::string key = line.substr(0, pos);
-            std::string value = line.substr(pos + 1);
-            std::stringstream ss(value);
+    for(auto it = doctorList.begin(); it != doctorList.end(); ++it){
+        if(it->first == doctorID){
+            std::stringstream ss(it->second);
             std::string patID;
-            // If it->first is doctorID
-            if(key == doctorID){
-                // Split it->seconds and for each patient ID we wil add it to a vector that hold all ids
-                while(std::getline(ss, patID, ',')){
-                    // Push new ID to to patientList vector
-                    patientList.push_back(patID);
-                }
+            while(std::getline(ss, patID, ',')){
+                patientList.push_back(patID);
             }
         }
     }

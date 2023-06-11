@@ -28,6 +28,7 @@ class User
 
     protected:
         std::map<std::string, std::string> user_map;
+        std::map<std::string, std::string> doctorList;
         bool loggedIn = false;
 
         void save_file(std::string input_file, std::map<std::string, std::string> input_map);
@@ -39,6 +40,7 @@ class User
 
     private:
         std::string fileFolder = "../files/";
+        std::string doctorListFile = "../files/doctors/doctors.txt";
 
         // std::string encryptPW(){};
         // std::string decryptPW(){};

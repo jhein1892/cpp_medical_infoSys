@@ -147,8 +147,17 @@ bool User::checkPassword(std::string inputPw){
     return false;
 }
 
-void getDoctorList(){
-
+void User::getDoctorList(){
+    std::ifstream inFile(doctorListFile);
+    std::string line;
+    while(std::getline(inFile, line)){
+        std::size_t pos = line.find(":");
+        if(pos != std::string::npos){
+            std::string key = line.substr(0, pos);
+            std::string value = line.substr(pos + 1);
+            doctorList[key] = value;
+        }
+    }
 };
 
 std::string User::genID(int length){

@@ -7,8 +7,18 @@ Doctor::Doctor(std::string name, std::string phone, std::string dob, std::string
 User(name, phone, dob, pw, ""), doctorID(id) 
 {
     User::set_filename(genFileName());
-    std::cout << get_id() << std::endl;
 }
+
+Doctor::Doctor(std::string id, std::string pw):
+User(id, pw, "")
+{
+    User::set_filename(genFileName(id));
+    User::login(pw);
+    User::update_map;
+
+    User::describe_user();
+}
+
 
 Doctor::~Doctor(){};
 
@@ -66,6 +76,13 @@ std::string Doctor::genFileName(){
 
     std::string fullFile = subFolder + fileName + ".txt";
     std::cout << get_id() << std::endl;
+
+    return fullFile;
+}
+
+std::string Doctor::genFileName(std::string id){
+    std::string filename = id + ".txt";
+    std::string fullFile = subFolder + filename;
 
     return fullFile;
 }

@@ -8,6 +8,7 @@
 class Doctor : public User {
     public: 
         Doctor(std::string name, std::string phone, std::string dob, std::string pw, std::string id);
+        Doctor(std::string id, std::string pw);
         ~Doctor();
 
         std::string get_id();
@@ -20,10 +21,14 @@ class Doctor : public User {
         // bool check_availabiltiy
         // void book_appointment(std::string userID)
         std::vector<std::string> patientList;
+    
+    protected:
+        std::string subFolder = "/doctors/";
 
     private:
         std::string doctorID;
         std::string genFileName();
+        std::string genFileName(std::string id);
 
 };
 

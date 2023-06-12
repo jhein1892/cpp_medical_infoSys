@@ -7,6 +7,7 @@ Doctor::Doctor(std::string name, std::string phone, std::string dob, std::string
 User(name, phone, dob, pw, ""), doctorID(id) 
 {
     User::set_filename(genFileName());
+    loggedIn = true;
 }
 
 Doctor::Doctor(std::string id, std::string pw):
@@ -16,9 +17,8 @@ User(id, pw, "")
     User::login(pw);
     User::update_map();
 
-    User::describe_user();
+    // User::describe_user();
 }
-
 
 Doctor::~Doctor(){};
 
@@ -72,7 +72,6 @@ void Doctor::dropPatient(std::string patientID){
 
 std::string Doctor::genFileName(){
     std::string fileName = get_id();
-    std::string subFolder = "/doctors/";
 
     std::string fullFile = subFolder + fileName + ".txt";
     std::cout << get_id() << std::endl;

@@ -20,7 +20,7 @@ User(id, pw, "")
     User::login(pw);
     setDoctorID(id);
     User::update_map();
-
+    getAppointments();
     // User::describe_user();
 }
 

@@ -84,9 +84,26 @@ void Doctor::setDoctorID(){
 }
 
 void Doctor::getAppointments(){
+    std::vector<std::string> ids;
+    std::vector<std::string> dates;
+
     for(auto it = user_map.begin(); it != user_map.end(); ++it){
-        std::cout << it->first << ": " << it->second << std::endl;
+        if(it->first == "appt_ids" || it->first == "appt_times"){
+            std::stringstream ss(it->second);
+            std::string apptInfo;
+
+            while(std::getline(ss, apptInfo,',')){
+                if(it->first == "appt_ids"){
+                    ids.push_back(apptInfo);
+                } else {
+                    dates.push_back(apptInfo);
+                }
+            }
+        } 
     }
+
+    std::cout << ids.size() << std::endl;
+    std::cout << dates.size() << std::endl;
 };
 
 std::string Doctor::genFileName(){

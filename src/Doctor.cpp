@@ -14,7 +14,7 @@ User(id, pw, "")
 {
     User::set_filename(genFileName(id));
     User::login(pw);
-    User::update_map;
+    User::update_map();
 
     User::describe_user();
 }

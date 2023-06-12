@@ -18,11 +18,13 @@ int main(){
 
     // Doctor newDoctor = Doctor("New Doctor", "Doc Phone", "dob", "paSSWORD", "123dd");
 
+    Doctor loginDoctor = Doctor("123dd", "paSSWORD");
+
     // newDoctor.updatePatients();
 
     // newDoctor.dropPatient("IXNclWCex6");
 
-    Patient loginPatient = Patient("ZXt2hwPAQb", "PAssword");
+    // Patient loginPatient = Patient("ZXt2hwPAQb", "PAssword");
     // loginPatient.checkDoctor();
     // Patient loginPatient = Patient("ZXt2hwPAQb", "password");
     // std::cout << loginPatient.get_value("name") << std::endl;

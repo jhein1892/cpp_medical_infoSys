@@ -101,15 +101,19 @@ void Doctor::getAppointments(){
             }
         } 
     }
-    for(int i = 0; i != dates.size(); ++i){
-        appointment_map[dates.at(i)] = ids.at(i);
-        // std::cout << dates.at(i) << ": " << ids.at(i) << std::endl;
+    if(dates.size() == ids.size()){
+        for(int i = 0; i != dates.size(); ++i){
+            appointment_map[dates.at(i)] = ids.at(i);
+        }
+
+        for(auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
+            std::cout << it->first << ": " << it->second << std::endl;
+        }
+        
+    } else {
+        std::cerr << "Seems to be disparitiy between dates and Ids" << std::endl;
     }
 
-
-    for(auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
-        std::cout << it->first << ": " << it->second << std::endl;
-    }
 };
 
 std::string Doctor::genFileName(){

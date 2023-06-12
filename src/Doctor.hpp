@@ -19,8 +19,9 @@ class Doctor : public User {
         void dropPatient(std::string patientID);
 
 
-        // bool check_availabiltiy
-        // void book_appointment(std::string userID)
+        bool check_availabiltiy(std::string date);
+        void book_appointment(std::string userID, std::string date);
+        void save_appointments();
         std::vector<std::string> patientList;
     
     protected:

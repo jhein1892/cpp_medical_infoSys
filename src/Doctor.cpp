@@ -74,6 +74,26 @@ void Doctor::dropPatient(std::string patientID){
     User::save_file(doctorListFile, doctorList);
 };
 
+bool Doctor::check_availabiltiy(std::string date){
+    // Can Just check if appointment_map has the relevant key
+    return true; 
+}
+
+void Doctor::book_appointment(std::string userID, std::string date){
+    // Check availability
+    // Add new Key/Pair to appointment_map
+}
+
+void Doctor::save_appointments(){
+    // Reverse the getAppointments
+        // Turn map into Vectors
+        // Turn vectors into strings
+        // assign strings to right keys
+        // Save right file
+}
+
+
+
 void Doctor::setDoctorID(std::string id){
     doctorID = id;
 }
@@ -109,7 +129,7 @@ void Doctor::getAppointments(){
         for(auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
             std::cout << it->first << ": " << it->second << std::endl;
         }
-        
+
     } else {
         std::cerr << "Seems to be disparitiy between dates and Ids" << std::endl;
     }

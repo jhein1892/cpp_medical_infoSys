@@ -3,10 +3,12 @@
 #include <fstream>
 #include <sstream>
 
-Doctor::Doctor(std::string name, std::string phone, std::string dob, std::string pw, std::string id): 
-User(name, phone, dob, pw, ""), doctorID(id) 
+Doctor::Doctor(std::string name, std::string phone, std::string dob, std::string pw): 
+User(name, phone, dob, pw, "") 
 {
+    setDoctorID();
     User::set_filename(genFileName());
+    User::save_file(filename, user_map);
     loggedIn = true;
 }
 
@@ -14,7 +16,9 @@ Doctor::Doctor(std::string id, std::string pw):
 User(id, pw, "")
 {
     User::set_filename(genFileName(id));
+
     User::login(pw);
+    setDoctorID(id);
     User::update_map();
 
     // User::describe_user();
@@ -69,6 +73,15 @@ void Doctor::dropPatient(std::string patientID){
 
     User::save_file(doctorListFile, doctorList);
 };
+
+void Doctor::setDoctorID(std::string id){
+    doctorID = id;
+}
+
+void Doctor::setDoctorID(){
+    std::string randomID = User::genID(12);
+    doctorID = randomID;
+}
 
 std::string Doctor::genFileName(){
     std::string fileName = get_id();

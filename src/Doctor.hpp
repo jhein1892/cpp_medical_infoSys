@@ -7,7 +7,7 @@
 
 class Doctor : public User {
     public: 
-        Doctor(std::string name, std::string phone, std::string dob, std::string pw, std::string id);
+        Doctor(std::string name, std::string phone, std::string dob, std::string pw);
         Doctor(std::string id, std::string pw);
         ~Doctor();
 
@@ -24,6 +24,8 @@ class Doctor : public User {
     
     protected:
         std::string subFolder = "/doctors/";
+        void setDoctorID(std::string id);
+        void setDoctorID();
 
     private:
         std::string doctorID;

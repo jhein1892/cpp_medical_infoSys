@@ -83,6 +83,12 @@ void Doctor::setDoctorID(){
     doctorID = randomID;
 }
 
+void Doctor::getAppointments(){
+    for(auto it = user_map.begin(); it != user_map.end(); ++it){
+        std::cout << it->first << ": " << it->second << std::endl;
+    }
+};
+
 std::string Doctor::genFileName(){
     std::string fileName = get_id();
 

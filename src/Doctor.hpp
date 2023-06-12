@@ -18,6 +18,7 @@ class Doctor : public User {
         void updatePatients();
         void dropPatient(std::string patientID);
 
+
         // bool check_availabiltiy
         // void book_appointment(std::string userID)
         std::vector<std::string> patientList;
@@ -26,6 +27,8 @@ class Doctor : public User {
         std::string subFolder = "/doctors/";
         void setDoctorID(std::string id);
         void setDoctorID();
+        void getAppointments();
+        std::map <std::string, std::string> appointment_map;
 
     private:
         std::string doctorID;

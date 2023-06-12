@@ -101,11 +101,15 @@ void Doctor::getAppointments(){
             }
         } 
     }
-    for(int i = 0; i != ids.size(); ++i){
-        std::cout << ids.at(i) << std::endl;
+    for(int i = 0; i != dates.size(); ++i){
+        appointment_map[dates.at(i)] = ids.at(i);
+        // std::cout << dates.at(i) << ": " << ids.at(i) << std::endl;
     }
-    // std::cout << ids.size() << std::endl;
-    // std::cout << dates.size() << std::endl;
+
+
+    for(auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
+        std::cout << it->first << ": " << it->second << std::endl;
+    }
 };
 
 std::string Doctor::genFileName(){

@@ -120,7 +120,6 @@ void Doctor::save_appointments(){
 
     std::string idString;
     std::string dateString;
-
     // Turn vectors into strings
     for(int i = 0; i < dates.size(); ++i){
         if(idString.empty()){

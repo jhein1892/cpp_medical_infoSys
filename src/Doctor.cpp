@@ -90,15 +90,11 @@ bool Doctor::check_availabiltiy(std::string date){
 void Doctor::book_appointment(std::string userID, std::string date){
     // Check availability
     if(check_availabiltiy(date)){
+        // Add new Key/Pair to appointment_map
         appointment_map[date] = userID;
     } else {
         std::cout << "Sorry, we can't book an appointment for that day." << std::endl;
     }
-
-    for(auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
-        std::cout << it->first << ": " << it->second << std::endl;
-    }
-    // Add new Key/Pair to appointment_map
 }
 
 void Doctor::save_appointments(){

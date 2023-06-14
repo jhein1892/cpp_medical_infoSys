@@ -77,8 +77,13 @@ void Doctor::dropPatient(std::string patientID){
 bool Doctor::check_availabiltiy(std::string date){
     // Can Just check if appointment_map has the relevant key
     for (auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
-        std::cout << it->first << std::endl;
+        if(it->first == date){
+            std::cout << "Unavailable, already an appointment on that day" << std::endl;
+            return false;
+        }
     }
+
+    std::cout << "Available to book appointment" << std::endl;
     return true; 
 }
 
@@ -129,9 +134,9 @@ void Doctor::getAppointments(){
             appointment_map[dates.at(i)] = ids.at(i);
         }
 
-        for(auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
-            std::cout << it->first << ": " << it->second << std::endl;
-        }
+        // for(auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
+        //     std::cout << it->first << ": " << it->second << std::endl;
+        // }
 
     } else {
         std::cerr << "Seems to be disparitiy between dates and Ids" << std::endl;

@@ -114,13 +114,14 @@ void Doctor::save_appointments(){
     std::vector <std::string> dates;
     // Turn map into Vectors
     for (auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
-        ids.push_back(it->first);
-        dates.push_back(it->second);
+        dates.push_back(it->first);
+        ids.push_back(it->second);
     }
 
     std::string idString;
     std::string dateString;
 
+    // Turn vectors into strings
     for(int i = 0; i < dates.size(); ++i){
         if(idString.empty()){
             idString += ids[i];
@@ -131,14 +132,12 @@ void Doctor::save_appointments(){
         }
     }
 
+    // assign strings to right keys
     update_key("appt_ids", idString);
     update_key("appt_times", dateString);
 
-    std::cout << filename << std::endl;
-    // Reverse the getAppointments
-        // Turn vectors into strings
-        // assign strings to right keys
-        // Save right file
+    // Save right file
+    save_file(filename, user_map);
 }
 
 void Doctor::setDoctorID(std::string id){

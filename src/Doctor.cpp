@@ -87,10 +87,18 @@ bool Doctor::check_availabiltiy(std::string date){
     return true; 
 }
 
+bool Doctor::check_patient(std::string userID){
+    for (int i = 0; i < patientList.size(); ++i){
+        std::cout << patientList[i] << std::endl;
+    }
+}
+
 void Doctor::book_appointment(std::string userID, std::string date){
     // Check availability
     if(check_availabiltiy(date)){
+        check_patient(userID);
         // Add new Key/Pair to appointment_map
+        // Check if userID is assigned to this Doctor.
         appointment_map[date] = userID;
     } else {
         std::cout << "Sorry, we can't book an appointment for that day." << std::endl;

@@ -20,6 +20,7 @@ class Doctor : public User {
 
 
         bool check_availabiltiy(std::string date);
+        bool check_patient(std::string userID);
         void book_appointment(std::string userID, std::string date);
         void save_appointments();
         std::vector<std::string> patientList;

@@ -20,7 +20,7 @@ int main(){
 
     Doctor loginDoctor = Doctor("123dd", "paSSWORD");
     // loginDoctor.check_availabiltiy("2023/06/15");
-    loginDoctor.book_appointment("UserID1", "2023/06/15");
+    loginDoctor.book_appointment("IXNclWCex6", "2023/06/15");
 
     // newDoctor.updatePatients();
 

@@ -103,12 +103,16 @@ void Doctor::book_appointment(std::string userID, std::string date){
     if(check_availabiltiy(date) && check_patient(userID)){
         appointment_map[date] = userID;
         std::cout << "Appointment was booked on " << date << " for " << userID << std::endl;
+        save_appointments();
     } else {
         std::cout << "Sorry, we can't book an appointment for that day." << std::endl;
     }
 }
 
 void Doctor::save_appointments(){
+    for (auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
+        std::cout<< it->first << ": " << it->second <<std::endl;
+    }
     // Reverse the getAppointments
         // Turn map into Vectors
         // Turn vectors into strings

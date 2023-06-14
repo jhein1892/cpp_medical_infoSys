@@ -19,7 +19,8 @@ int main(){
     // Doctor newDoctor = Doctor("New Doctor", "Doc Phone", "dob", "paSSWORD", "123dd");
 
     Doctor loginDoctor = Doctor("123dd", "paSSWORD");
-    loginDoctor.check_availabiltiy("2023/06/15");
+    // loginDoctor.check_availabiltiy("2023/06/15");
+    loginDoctor.book_appointment("UserID1", "2023/06/15");
 
     // newDoctor.updatePatients();
 

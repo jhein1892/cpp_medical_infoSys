@@ -116,8 +116,6 @@ void Doctor::save_appointments(){
         // Save right file
 }
 
-
-
 void Doctor::setDoctorID(std::string id){
     doctorID = id;
 }

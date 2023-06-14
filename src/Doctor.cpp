@@ -76,6 +76,9 @@ void Doctor::dropPatient(std::string patientID){
 
 bool Doctor::check_availabiltiy(std::string date){
     // Can Just check if appointment_map has the relevant key
+    for (auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
+        std::cout << it->first << std::endl;
+    }
     return true; 
 }
 

@@ -131,8 +131,10 @@ void Doctor::save_appointments(){
         }
     }
 
-    std::cout << idString << std::endl;
-    std::cout << dateString << std::endl;
+    update_key("appt_ids", idString);
+    update_key("appt_times", dateString);
+
+    std::cout << filename << std::endl;
     // Reverse the getAppointments
         // Turn vectors into strings
         // assign strings to right keys

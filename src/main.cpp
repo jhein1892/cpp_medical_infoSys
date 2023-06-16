@@ -35,14 +35,14 @@ int main(){
             std::getline(std::cin, acctType);
             if(acctType == "New"){
                 // Need name, phone, DOB, password
-                std::string username;
+                std::string name;
                 std::string phone;
                 std::string dob;
                 std::string password;
                 std::string confirmPass;
 
                 std::cout << "Please Enter your name: ";
-                std::getline(std::cin, username);
+                std::getline(std::cin, name);
                 std::cout << "Please Enter your Phone Number: ";
                 std::getline(std::cin, phone);
                 std::cout << "Please Enter your Date of Birth: ";
@@ -55,10 +55,13 @@ int main(){
                     std::string cardNum;
                     std::cout << "Please Enter your Card Number: ";
                     std::getline(std::cin, cardNum);
+                    
                     // Create new Patient
+                    Patient newPatient = Patient(name, phone, dob, password, cardNum);
                     break;
                 }
                 //Create new Doctor
+                Doctor newDoctor = Doctor(name, phone, dob, password);
                 break;
                 
 
@@ -70,11 +73,14 @@ int main(){
                 std::getline(std::cin, id);
                 std::cout << "Please Enter your password: ";
                 std::getline(std::cin, password);
+
                 if(userType == "Patient"){
                     // Login Patient
-                    //break;
+                    Patient loginPatient = Patient(id, password);
+                    break;
                 }
                 // Login Doctor
+                Doctor loginDoctor = Doctor(id, password); 
                 break;
 
             } else {

@@ -3,15 +3,25 @@
 // Technologies Required: C++ programming language, Object Oriented Programming (OOP), Encryption & Authentication and Database Management System (DBMS).
 #include "Patient.hpp"
 #include "Doctor.hpp"
-
 #include "User.hpp"
-
 #include <string>
 #include <stdio.h>
 #include <iostream>
 
 int main(){
-    
+    // Main function
+    while(true)
+    {
+        // Are you a patient or are you a Doctor
+        std::cout << "Are you a patient or are you a Doctor? " << std::endl;
+        std::string userType;
+        std::getline(std::cin, userType);
+        std::cout << "Ok so you are a " << userType << std::endl;
+
+        break;
+
+        // Are you logging in or are you Creating a new user?
+    }
 
 
 
@@ -22,9 +32,9 @@ int main(){
 
     // Doctor newDoctor = Doctor("New Doctor", "Doc Phone", "dob", "paSSWORD", "123dd");
 
-    Doctor loginDoctor = Doctor("123dd", "paSSWORD");
+    // Doctor loginDoctor = Doctor("123dd", "paSSWORD");
     // loginDoctor.check_availabiltiy("2023/06/15");
-    loginDoctor.book_appointment("IXNclWCex6", "2023/06/15");
+    // loginDoctor.book_appointment("IXNclWCex6", "2023/06/15");
 
     // newDoctor.updatePatients();
 

@@ -196,3 +196,14 @@ std::string Doctor::genFileName(std::string id){
 
     return fullFile;
 }
+
+void Doctor::controlDoctor(){
+    if (loggedIn){
+
+    } else {
+        if(!user_map.empty()){
+            auto tempPW = user_map.find("Password");
+            login(tempPW->second);
+        }
+    }
+}

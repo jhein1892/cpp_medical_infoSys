@@ -37,6 +37,8 @@ class Doctor : public User {
         std::string genFileName();
         std::string genFileName(std::string id);
 
+        void controlDoctor();
+
 };
 
 #endif

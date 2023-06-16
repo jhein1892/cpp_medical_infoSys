@@ -56,15 +56,20 @@ int main(){
                     std::cout << "Please Enter your Card Number: ";
                     std::getline(std::cin, cardNum);
                     // Create new Patient
-                    //break;
+                    break;
                 }
                 //Create new Doctor
                 break;
                 
 
             } else if (acctType == "Existing"){
-                std::cout << "Existing User" << std::endl;
                 // Need id, pw
+                std::string id;
+                std::string password;
+                std::cout << "Please Enter your ID: ";
+                std::getline(std::cin, id);
+                std::cout << "Please Enter your password: ";
+                std::getline(std::cin, password);
                 if(userType == "Patient"){
                     // Login Patient
                     //break;

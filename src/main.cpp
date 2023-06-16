@@ -55,7 +55,7 @@ int main(){
                     std::string cardNum;
                     std::cout << "Please Enter your Card Number: ";
                     std::getline(std::cin, cardNum);
-                    
+
                     // Create new Patient
                     Patient newPatient = Patient(name, phone, dob, password, cardNum);
                     break;
@@ -87,9 +87,6 @@ int main(){
                 std::cout << "Sorry thats not a recoginized option" << std::endl;
             }
         }
-
-
-        std::cout << "Ok so we got a " << acctType << " " << userType << std::endl;
         break;
     }
 

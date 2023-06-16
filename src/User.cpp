@@ -66,7 +66,6 @@ std::string User::get_value(std::string key){
 void User::set_filename(std::string file)
 {
     filename = fileFolder + file;
-    std::cout << "In Set_filename" << file << std::endl;
 }
 
 void User::login(std::string inputPw){
@@ -139,7 +138,7 @@ bool User::checkPassword(std::string inputPw){
                 std::string value = line.substr(pos + 1);
 
                 if(key == "password"){
-                    if ((value == inputPw) == 0){
+                    if ((value == inputPw) == 1){
                         return true;
                     } else {
                         return false;

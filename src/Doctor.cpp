@@ -22,6 +22,7 @@ User(id, pw, "")
     User::update_map();
     updatePatients();
     getAppointments();
+    controlDoctor();
     // User::describe_user();
 }
 
@@ -200,7 +201,9 @@ std::string Doctor::genFileName(std::string id){
 void Doctor::controlDoctor(){
     while(true){
         if (loggedIn){
-            
+            std::cout << "d: drop patient\nc: check availability\nb: book appointment\n" <<std::endl;
+
+
         } else {
             if(!user_map.empty()){
                 auto tempPW = user_map.find("Password");

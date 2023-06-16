@@ -12,15 +12,40 @@ int main(){
     // Main function
     while(true)
     {
-        // Are you a patient or are you a Doctor
-        std::cout << "Are you a patient or are you a Doctor? " << std::endl;
         std::string userType;
-        std::getline(std::cin, userType);
-        std::cout << "Ok so you are a " << userType << std::endl;
-
-        break;
+        while(true){
+            std::cout << "Are you a Patient or are you a Doctor? " << std::endl;
+            std::getline(std::cin, userType);
+            if(userType == "Patient"){
+                std::cout << "So you're a Patient" << std::endl;
+                break;
+            } else if(userType == "Doctor"){
+                std::cout << "Ok you're a Doctor" << std::endl;
+                break;
+            } else {
+                std::cout << "Sorry thats not a recoginized option" << std::endl;
+            }
+        }
+        // Are you a patient or are you a Doctor
 
         // Are you logging in or are you Creating a new user?
+        std::string acctType;
+        while(true){
+            std::cout << "Existing or new user? " <<std::endl;
+            std::getline(std::cin, acctType);
+            if(acctType == "New"){
+                std::cout << "New Account" << std::endl;
+                break;
+            } else if (acctType == "Existing"){
+                std::cout << "Existing User" << std::endl;
+                break;
+            } else {
+                std::cout << "Sorry thats not a recoginized option" << std::endl;
+            }
+        }
+
+        std::cout << "Ok so we got a " << acctType << " " << userType << std::endl;
+        break;
     }
 
 

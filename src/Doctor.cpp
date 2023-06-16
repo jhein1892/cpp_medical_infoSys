@@ -210,19 +210,30 @@ void Doctor::controlDoctor(){
             switch(userInput)
             {
                 case 'd':
+                    // Need patientID
                     std::cout << "What is the Patient ID: ";
                     std::getline(std::cin, patientID);
-                    dropPatient(patientID);
+
                     // Run dropPatient
-                    // Need patientID
+                    dropPatient(patientID);
                     break;
                 case 'c':
-                    // Run Check availability
                     // Need a date
+                    std::cout << "Which day would you like to check: ";
+                    std::getline(std::cin, date);
+
+                    // Run Check availability
+                    check_availabiltiy(date);
                     break;
                 case 'b':
-                    // Run book_appointment
                     // need a userID and a date
+                    std::cout << "What is the Patient ID: ";
+                    std::getline(std::cin, patientID);
+                    std::cout << "Which day would you like to book for: ";
+                    std::getline(std::cin, date);
+
+                    // Run book_appointment
+                    book_appointment(patientID, date);
                     break;
                 case 'q':
                     // quit program

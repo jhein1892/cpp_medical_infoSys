@@ -35,14 +35,34 @@ int main(){
             std::getline(std::cin, acctType);
             if(acctType == "New"){
                 std::cout << "New Account" << std::endl;
+
+                // Need name, phone, DOB, password
+
+                if(userType == "Patient"){
+                    // Need cardNum 
+
+                    // Create new Patient
+                    //break;
+                }
+                //Create new Doctor
                 break;
+                
+
             } else if (acctType == "Existing"){
                 std::cout << "Existing User" << std::endl;
+                // Need id, pw
+                if(userType == "Patient"){
+                    // Login Patient
+                    //break;
+                }
+                // Login Doctor
                 break;
+
             } else {
                 std::cout << "Sorry thats not a recoginized option" << std::endl;
             }
         }
+
 
         std::cout << "Ok so we got a " << acctType << " " << userType << std::endl;
         break;

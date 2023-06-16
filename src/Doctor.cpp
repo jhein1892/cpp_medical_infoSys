@@ -201,9 +201,33 @@ std::string Doctor::genFileName(std::string id){
 void Doctor::controlDoctor(){
     while(true){
         if (loggedIn){
+            std::string patientID;
+            std::string date;
+            char userInput;
             std::cout << "d: drop patient\nc: check availability\nb: book appointment\n" <<std::endl;
+            std::cin >> userInput;
 
-
+            switch(userInput)
+            {
+                case 'd':
+                    std::cout << "What is the Patient ID: ";
+                    std::getline(std::cin, patientID);
+                    dropPatient(patientID);
+                    // Run dropPatient
+                    // Need patientID
+                    break;
+                case 'c':
+                    // Run Check availability
+                    // Need a date
+                    break;
+                case 'b':
+                    // Run book_appointment
+                    // need a userID and a date
+                    break;
+                case 'q':
+                    // quit program
+                    break;
+            }
         } else {
             if(!user_map.empty()){
                 auto tempPW = user_map.find("Password");

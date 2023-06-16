@@ -70,17 +70,23 @@ void User::set_filename(std::string file)
 }
 
 void User::login(std::string inputPw){
-    if(loggedIn){
-        std::cout << "Already Logged in" << std::endl;
-        return;
+    std::string tempPW = inputPw;
+    while(true){
+        if(loggedIn){
+            std::cout << "Already Logged in" << std::endl;
+            break;
+        }
+        
+        if(checkPassword(tempPW)){
+            loggedIn = true;
+            std::cout << "User Logged in" << std::endl;
+            break;
+        } else {
+            std::cout << "Incorrect Password, Please try again: " << std::endl;
+            std::cin >> tempPW;
+        }
     }
-    
-    if(checkPassword(inputPw)){
-        loggedIn = true;
-        std::cout << "User Logged in" << std::endl;
-    } else {
-        std::cout << "Incorrect Password, Please try again." << std::endl;
-    }
+    return;
 }
 
 void User::describe_user(){

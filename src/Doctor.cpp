@@ -198,12 +198,17 @@ std::string Doctor::genFileName(std::string id){
 }
 
 void Doctor::controlDoctor(){
-    if (loggedIn){
-
-    } else {
-        if(!user_map.empty()){
-            auto tempPW = user_map.find("Password");
-            login(tempPW->second);
+    while(true){
+        if (loggedIn){
+            
+        } else {
+            if(!user_map.empty()){
+                auto tempPW = user_map.find("Password");
+                login(tempPW->second);
+            } else {
+                std::cout << "User Map is empty for some reason" << std::endl;
+                break;
+            }
         }
     }
 }

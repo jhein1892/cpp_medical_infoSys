@@ -52,7 +52,6 @@ void Doctor::updatePatients(){
 };
 
 void Doctor::dropPatient(std::string patientID){
-
     // Remove a patient from the list of patients.
     std::string patientString;
     bool beenDropped = false;
@@ -220,14 +219,13 @@ void Doctor::controlDoctor(){
 
             switch(userInput)
             {
+                // DONE
                 case 'd':
-                    // Need patientID
                     std::cout << "What is the Patient ID: ";
                     std::getline(std::cin, patientID);
-
-                    // Run dropPatient
                     dropPatient(patientID);
                     break;
+                
                 case 'c':
                     // Need a date
                     std::cout << "Which day would you like to check: ";

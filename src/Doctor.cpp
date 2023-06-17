@@ -226,6 +226,7 @@ void Doctor::controlDoctor(){
                     dropPatient(patientID);
                     break;
                 
+                // DONE
                 case 'c':
                     // Need a date
                     std::cout << "Which day would you like to check: ";

@@ -55,8 +55,11 @@ void Doctor::dropPatient(std::string patientID){
 
     // Remove a patient from the list of patients.
     std::string patientString;
+    bool beenDropped = false;
     for(int i = 0; i < patientList.size(); i++){
         if(patientID == patientList[i]){
+            std::cout << "Patient " << patientID << " has been dropped." << std::endl;
+            beenDropped = true;
             continue;
         } else {
             if(patientString.empty()){
@@ -67,13 +70,18 @@ void Doctor::dropPatient(std::string patientID){
         }
     };
 
-    for(auto it = doctorList.begin(); it != doctorList.end(); ++it){
-        if(it->first == doctorID){
-            it->second = patientString;
+    if(beenDropped){
+        for(auto it = doctorList.begin(); it != doctorList.end(); ++it){
+            if(it->first == doctorID){
+                it->second = patientString;
+                }
             }
-        }
 
-    User::save_file(doctorListFile, doctorList);
+        User::save_file(doctorListFile, doctorList);
+    } else {
+        std::cout << "Sorry, no patient by that ID" << std::endl;
+    }
+
 };
 
 bool Doctor::check_availabiltiy(std::string date){

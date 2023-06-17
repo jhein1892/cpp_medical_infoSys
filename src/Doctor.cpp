@@ -216,7 +216,7 @@ void Doctor::controlDoctor(){
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
             // std::getline(std::cin, userInput);
-
+            bool isQuit = false;
             switch(userInput)
             {
                 // DONE
@@ -235,6 +235,8 @@ void Doctor::controlDoctor(){
                     // Run Check availability
                     check_availabiltiy(date);
                     break;
+                
+                // DONE
                 case 'b':
                     // need a userID and a date
                     std::cout << "What is the Patient ID: ";
@@ -245,9 +247,15 @@ void Doctor::controlDoctor(){
                     // Run book_appointment
                     book_appointment(patientID, date);
                     break;
+                
                 case 'q':
+                    isQuit = true;
                     // quit program
                     break;
+            }
+
+            if(isQuit){
+                break;
             }
         } else {
             if(!user_map.empty()){
@@ -259,4 +267,6 @@ void Doctor::controlDoctor(){
             }
         }
     }
+
+    std::cout << "Logging out" << std::endl;
 }

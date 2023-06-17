@@ -206,6 +206,7 @@ void Doctor::controlDoctor(){
             char userInput;
             std::cout << "d: drop patient\nc: check availability\nb: book appointment\n" <<std::endl;
             std::cin >> userInput;
+            // std::getline(std::cin, userInput);
 
             switch(userInput)
             {

@@ -10,6 +10,7 @@ User(name, phone, dob, pw, "")
     User::set_filename(genFileName());
     User::save_file(filename, user_map);
     loggedIn = true;
+    controlDoctor();
 }
 
 Doctor::Doctor(std::string id, std::string pw):

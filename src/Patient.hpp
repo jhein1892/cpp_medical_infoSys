@@ -35,6 +35,8 @@ class Patient : public User
         void genPayment();
 
         void assignDoctor();
+
+        void controlPatient();
 };
 
 #endif

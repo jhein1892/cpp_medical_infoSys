@@ -23,6 +23,8 @@ Patient::Patient(std::string id, std::string pw): User(id, pw, ""){
         assignDoctor();
     }
 
+
+
     // Try Logging in
 }
 
@@ -154,3 +156,21 @@ void Patient::assignDoctor(){
 
     save_file(doctorListFile, doctorList);
 };
+
+void Patient::controlPatient(){
+    while(true){
+        if(loggedIn){
+
+        } else {
+            if(!user_map.empty()){
+                auto tempPW = user_map.find("Password");
+                login(tempPW->second);
+            } else {
+                std::cout << "User Map is empty for some reason" << std::endl;
+                break;
+            }
+        }
+    }
+
+    std::cout << "Logging out" << std::endl;
+}

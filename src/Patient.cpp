@@ -117,6 +117,13 @@ void Patient::genPayment(){
     return;
 }
 
+void Patient::bookAppt(std::string date){
+    // Go to the doctors file
+    // go through appt_times, and see if we can book a time.
+    // If yes add in patientID and date
+    return;
+}
+
 void Patient::assignDoctor(){
     std::map <std::string, int> doctorCount;
 

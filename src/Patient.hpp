@@ -25,8 +25,6 @@ class Patient : public User
         std::string patientID;
         std::string doctorID;
 
-        // std::string nextAppt;
-        // void bookAppt;
 
         std::string genFileName();
         std::string genFileName(std::string id);
@@ -36,6 +34,8 @@ class Patient : public User
         void setDoctorID(std::string id);
         void genPayment();
 
+        // std::string nextAppt;
+        void bookAppt(std::string date);
         void assignDoctor();
 
         void controlPatient();

@@ -212,7 +212,7 @@ void Doctor::controlDoctor(){
             std::string patientID;
             std::string date;
             char userInput;
-            std::cout << "d: drop patient\nc: check availability\nb: book appointment\n" <<std::endl;
+            std::cout << "d: drop patient\nc: check availability\nb: book appointment" <<std::endl;
             std::cin >> userInput;
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 

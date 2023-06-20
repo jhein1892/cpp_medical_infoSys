@@ -160,7 +160,40 @@ void Patient::assignDoctor(){
 void Patient::controlPatient(){
     while(true){
         if(loggedIn){
+            char userInput;
+            std::cout << "r: generate report\nc: check doctor ID\np: generate payment\nn: next appointment\nb: book appointment" << std::endl;
+            std::cin >> userInput;
 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            bool isQuit = false;
+
+            switch(userInput)
+            {
+                case 'r':
+                    // gen report
+                    break;
+                case 'c':
+                    // check doctor
+                    break;
+                case 'p':
+                    // gen payment
+                    break;
+                case 'n':
+                    // next appointment
+                    break;
+                case 'b':
+                    // book appointment
+                    break;
+                case 'q':
+                    // Quit
+                    isQuit = true;
+                    break;
+            }
+
+            if(isQuit){
+                break;
+            }
         } else {
             if(!user_map.empty()){
                 auto tempPW = user_map.find("Password");

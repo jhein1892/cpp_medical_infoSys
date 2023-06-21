@@ -7,8 +7,10 @@
 Patient::Patient(std::string name, std::string phone, std::string dob, std::string pw, std::string cardNum): 
     User(name, phone, dob, pw, ""), cardNumber(cardNum)
 {
+
     setPatientID();
     User::set_filename(genFileName());
+    update_key("cardNumber", cardNumber);
     User::save_file(filename, user_map);
     assignDoctor();
 };
@@ -23,7 +25,7 @@ Patient::Patient(std::string id, std::string pw): User(id, pw, ""){
         assignDoctor();
     }
 
-
+    controlPatient();
 
     // Try Logging in
 }
@@ -35,8 +37,9 @@ std::string Patient::get_cardNum(){
 }
 
 void Patient::update_cardNum(std::string newNum){
-    std::cout << Card number Updated from << cardNumber << " to " << newNum std::end;
+    std::cout << "Card number Updated from " << cardNumber << " to " << newNum << std::endl;
     cardNumber = newNum;
+    update_key("cardNumber", newNum);
 }
 
 bool Patient::checkDoctor(){
@@ -139,7 +142,6 @@ void Patient::bookAppt(std::string date){
     // go through appt_times, and see if we can book a time.
     if(apptIDs.size() == apptDates.size()){
         for(int i = 0; i < apptIDs.size(); ++i){
-            std::cout << apptDates.at(i) << std::endl;
             if(apptDates.at(i) == date){
                 std::cout << "Sorry this date is already booked" << std::endl;
                 return;
@@ -221,6 +223,8 @@ void Patient::controlPatient(){
 
             bool isQuit = false;
 
+            std::string newNum;
+            std::string date;
             switch(userInput)
             {
                 case 'r':
@@ -233,13 +237,11 @@ void Patient::controlPatient(){
                     genPayment();
                     break;
                 case 'u':
-                    std::string newNum;
                     std::cout << "Please enter new card number: ";
                     std::getline(std::cin, newNum);
                     update_cardNum(newNum);
                     break;
                 case 'b':
-                    std::string date;
                     std::cout << "What day would you like to book: ";
                     std::getline(std::cin, date);
                     bookAppt(date);

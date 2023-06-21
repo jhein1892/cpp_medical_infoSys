@@ -79,13 +79,8 @@ std::string Patient::genFileName(){
 }
 
 std::string Patient::genFileName(std::string id){
-
     std::string fileName = id + ".txt";
-    // std::string subFolder = "/patients/";
-
     std::string fullFile = subFolder + fileName;
-
-    // std::cout << fullFile << std::endl;
     return fullFile;
 }
 

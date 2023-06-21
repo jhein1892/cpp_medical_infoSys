@@ -97,7 +97,6 @@ void User::describe_user(){
 
 void User::save_file(std::string input_file, std::map<std::string, std::string> input_map){
     if(!filename.empty()){
-        // std::string fullFile = fileFolder + filename;
         std::ofstream outFile(input_file);
         if(!outFile.is_open()){
             std::cerr << "Error: Could not open File" << input_file << std::endl;
@@ -108,9 +107,6 @@ void User::save_file(std::string input_file, std::map<std::string, std::string> 
         }
         outFile.close();
     } 
-    else {
-        std::cerr << "No Filename detected" << std::endl;
-    }
 }
 
 bool User::checkPassword(std::string inputPw){
@@ -177,7 +173,7 @@ std::string User::genID(int length){
         int randomIndex = std::rand() % characters.length();
         userID += characters[randomIndex];
     };
-    std::cout << userID << std::endl;
+    std::cout << "New UserID is: " << userID << std::endl;
     update_key("id", userID);
 
     return userID;

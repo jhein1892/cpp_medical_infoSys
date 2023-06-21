@@ -8,8 +8,13 @@
 #include <stdio.h>
 #include <iostream>
 
+// Existing Users tests for both Doctors and Patients, and working as expected.
+
+// Next Up need to test new Users
+
+
 int main(){
-    // Main function
+
     while(true)
     {
         std::string userType;

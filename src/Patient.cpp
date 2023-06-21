@@ -13,6 +13,8 @@ Patient::Patient(std::string name, std::string phone, std::string dob, std::stri
     update_key("cardNumber", cardNumber);
     User::save_file(filename, user_map);
     assignDoctor();
+
+    controlPatient();
 };
 
 Patient::Patient(std::string id, std::string pw): User(id, pw, ""){

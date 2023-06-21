@@ -122,6 +122,8 @@ void Patient::bookAppt(std::string date){
     std::ifstream inFile(doctorFile);
     std::string line;
 
+    std::map <std::string, std::string> doc_map;
+
     std::vector<std::string> apptIDs;
     std::vector<std::string> apptDates;
 
@@ -135,7 +137,6 @@ void Patient::bookAppt(std::string date){
         if(pos != std::string::npos){
             std::string key = line.substr(0, pos);
             std::string value = line.substr(pos + 1);
-
             if(key == "appt_ids" || key == "appt_times"){
                 std::stringstream ss(value);
                 std::string apptInfo;
@@ -147,6 +148,7 @@ void Patient::bookAppt(std::string date){
                     }
                 }
             }
+            doc_map[key] = value;
         }
     }
     // go through appt_times, and see if we can book a time.
@@ -162,7 +164,23 @@ void Patient::bookAppt(std::string date){
         apptDates.push_back(date);
     }
 
-    
+    std::string idString;
+    std::string dateString;
+
+    for(int i = 0; i < apptDates.size()){
+        if(idString.empty()){
+            idString = apptIDs.at(i);
+            dateString = apptDates.at(i);
+        } else {
+            idString += "," + apptIDs.at(i);
+            dateString += "," + apptDates.at(i);
+        }
+    }
+
+    doc_map["appt_ids"] = idString;
+    doc_map["appt_times"] = dateString;
+
+    save_file(doctorFile, doc_map);
 
     // If yes add in patientID and date
     return;

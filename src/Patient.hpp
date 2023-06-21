@@ -12,13 +12,10 @@ class Patient : public User
 
         std::string get_cardNum();
         void update_cardNum(std::string newNum);
-
-        void add_appt(std::string date);
-        void gen_report();
         bool checkDoctor();
-        void bookAppt(std::string date);
 
     protected:
+        // void gen_report();
         std::string subFolder = "/patients/";
 
     private:
@@ -35,7 +32,7 @@ class Patient : public User
         void setDoctorID(std::string id);
         void genPayment();
 
-        // std::string nextAppt;
+        void bookAppt(std::string date);
         void assignDoctor();
 
         void controlPatient();

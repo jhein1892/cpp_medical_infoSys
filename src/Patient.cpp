@@ -38,25 +38,10 @@ void Patient::update_cardNum(std::string newNum){
     cardNumber = newNum;
 }
 
-void Patient::add_appt(std::string date){
-    User::update_key("next_appt", date);
-    
-    // Get Date from input
-
-    // Check Corresponsiding Doctors schedule to see if there is already appointment
-
-        // If no, add appt to patients appt var, add patient id to Doctors appt file
-
-        // If yes, ask for a new date/time
-    return;
-}
-
-void Patient::gen_report(){
-    User::describe_user();
-    // Similar to a describe User function: Provide general info about Patient, also provide a description of their appointment schedule.
-
-    return;
-}
+// void Patient::gen_report(){
+//     User::describe_user();
+//     return;
+// }
 
 bool Patient::checkDoctor(){
 
@@ -229,7 +214,7 @@ void Patient::controlPatient(){
     while(true){
         if(loggedIn){
             char userInput;
-            std::cout << "r: generate report\nc: check doctor ID\np: generate payment\nn: next appointment\nb: book appointment" << std::endl;
+            std::cout << "r: generate report\nc: check doctor ID\np: generate payment\nu: update card info\nb: book appointment" << std::endl;
             std::cin >> userInput;
 
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -239,7 +224,7 @@ void Patient::controlPatient(){
             switch(userInput)
             {
                 case 'r':
-                    // gen report
+                    User::describe_user();
                     break;
                 case 'c':
                     // check doctor
@@ -247,8 +232,8 @@ void Patient::controlPatient(){
                 case 'p':
                     // gen payment
                     break;
-                case 'n':
-                    // next appointment
+                case 'u':
+                    // update Card Info
                     break;
                 case 'b':
                     // book appointment

@@ -15,7 +15,7 @@ class Patient : public User
         bool checkDoctor();
 
     protected:
-        // void gen_report();
+
         std::string subFolder = "/patients/";
 
     private:

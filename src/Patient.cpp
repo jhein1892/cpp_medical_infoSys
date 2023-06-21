@@ -35,31 +35,31 @@ std::string Patient::get_cardNum(){
 }
 
 void Patient::update_cardNum(std::string newNum){
+    std::cout << Card number Updated from << cardNumber << " to " << newNum std::end;
     cardNumber = newNum;
 }
 
-// void Patient::gen_report(){
-//     User::describe_user();
-//     return;
-// }
-
 bool Patient::checkDoctor(){
-
-    getDoctorList();
-    for(auto it = doctorList.begin(); it != doctorList.end(); ++it){
-        std::stringstream ss(it->second);
-        std::string patID;
-        while(std::getline(ss, patID, ',')){
-            if((patID == patientID) == 1){
-                setDoctorID(it->first);
-                std::cout << "Doctor ID: " << it->first << std::endl;
-                return true;
+    if(doctorID.empty()){
+        getDoctorList();
+        for(auto it = doctorList.begin(); it != doctorList.end(); ++it){
+            std::stringstream ss(it->second);
+            std::string patID;
+            while(std::getline(ss, patID, ',')){
+                if((patID == patientID) == 1){
+                    setDoctorID(it->first);
+                    std::cout << "Doctor ID: " << it->first << std::endl;
+                    return true;
+                }
             }
-        }
-    };
+        };
 
-    std::cout << "Patient not assigned to Doctor yet" << std::endl;
-    return false;
+        std::cout << "Patient not assigned to Doctor yet" << std::endl;
+        return false;
+    } else {
+        std::cout << "Doctor ID: " << doctorID << std::endl;
+        return true;
+    }
 }
 
 std::string Patient::genFileName(){
@@ -227,19 +227,24 @@ void Patient::controlPatient(){
                     User::describe_user();
                     break;
                 case 'c':
-                    // check doctor
+                    checkDoctor();
                     break;
                 case 'p':
-                    // gen payment
+                    genPayment();
                     break;
                 case 'u':
-                    // update Card Info
+                    std::string newNum;
+                    std::cout << "Please enter new card number: ";
+                    std::getline(std::cin, newNum);
+                    update_cardNum(newNum);
                     break;
                 case 'b':
-                    // book appointment
+                    std::string date;
+                    std::cout << "What day would you like to book: ";
+                    std::getline(std::cin, date);
+                    bookAppt(date);
                     break;
                 case 'q':
-                    // Quit
                     isQuit = true;
                     break;
             }

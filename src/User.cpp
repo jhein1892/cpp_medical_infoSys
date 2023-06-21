@@ -177,6 +177,7 @@ std::string User::genID(int length){
         userID += characters[randomIndex];
     };
     std::cout << userID << std::endl;
+    update_key("id", userID);
 
     return userID;
 }

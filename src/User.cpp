@@ -8,6 +8,7 @@
 User::User(std::string name, std::string phone, std::string dob, std::string pw, std::string fileName): filename(fileName)
 {
     // Store input values into user_map variable
+    getDoctorList();
     user_map["name"] = name;
     user_map["phone"] = phone;
     user_map["DOB"] = dob;

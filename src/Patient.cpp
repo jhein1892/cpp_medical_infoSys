@@ -68,13 +68,8 @@ bool Patient::checkDoctor(){
 }
 
 std::string Patient::genFileName(){
-
     std::string fileName = patientID + ".txt";
-    // std::string subFolder = "/patients/";
-
     std::string fullFile = subFolder + fileName;
-
-    std::cout << subFolder << std::endl;
     return fullFile;
 }
 

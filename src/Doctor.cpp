@@ -8,7 +8,11 @@ User(name, phone, dob, pw, "")
 {
     setDoctorID();
     User::set_filename(genFileName());
+    update_key("appt_ids", "");
+    update_key("appt_times", "");
     User::save_file(filename, user_map);
+    doctorList[doctorID] = "";
+    save_file(doctorListFile, doctorList);
     loggedIn = true;
     controlDoctor();
 }

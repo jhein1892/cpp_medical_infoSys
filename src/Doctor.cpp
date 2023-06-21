@@ -104,7 +104,6 @@ bool Doctor::check_availabiltiy(std::string date){
 bool Doctor::check_patient(std::string userID){
     for (int i = 0; i < patientList.size(); ++i){
         if(userID == patientList[i]){
-            std::cout << patientList[i] << std::endl;
             return true;
         }
     }
@@ -183,11 +182,6 @@ void Doctor::getAppointments(){
         for(int i = 0; i != dates.size(); ++i){
             appointment_map[dates.at(i)] = ids.at(i);
         }
-
-        // for(auto it = appointment_map.begin(); it != appointment_map.end(); ++it){
-        //     std::cout << it->first << ": " << it->second << std::endl;
-        // }
-
     } else {
         std::cerr << "Seems to be disparitiy between dates and Ids" << std::endl;
     }
@@ -196,10 +190,7 @@ void Doctor::getAppointments(){
 
 std::string Doctor::genFileName(){
     std::string fileName = get_id();
-
     std::string fullFile = subFolder + fileName + ".txt";
-    std::cout << get_id() << std::endl;
-
     return fullFile;
 }
 

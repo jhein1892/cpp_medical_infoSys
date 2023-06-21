@@ -118,6 +118,25 @@ void Patient::genPayment(){
 }
 
 void Patient::bookAppt(std::string date){
+    std::string doctorFile = "../files/doctors/" + doctorID; 
+    std::ifstream inFile(doctorFile);
+    std::string line;
+
+    std::vector <std::string> apptIDs;
+    std::vector <std::string> apptDates;
+
+    if(!inFile.is_open()){
+        std::cerr << "Error: could not open file" << filename << std::endl;
+    }
+
+    while(std::getline(inFile, line)){
+        std::size_t pos = line.find(":");
+        if(pos != std::string::npos){
+            std::string key = line.substr(0, pos);
+            std::string value = line.substr(pos + 1);
+
+        }
+    }
     // Go to the doctors file
     // go through appt_times, and see if we can book a time.
     // If yes add in patientID and date

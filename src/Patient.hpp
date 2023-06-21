@@ -16,6 +16,7 @@ class Patient : public User
         void add_appt(std::string date);
         void gen_report();
         bool checkDoctor();
+        void bookAppt(std::string date);
 
     protected:
         std::string subFolder = "/patients/";
@@ -35,7 +36,6 @@ class Patient : public User
         void genPayment();
 
         // std::string nextAppt;
-        void bookAppt(std::string date);
         void assignDoctor();
 
         void controlPatient();

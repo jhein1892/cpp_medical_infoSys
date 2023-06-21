@@ -118,12 +118,11 @@ void Patient::genPayment(){
 }
 
 void Patient::bookAppt(std::string date){
-    std::string doctorFile = "../files/doctors/" + doctorID; 
+    std::string doctorFile = "../files/doctors/" + doctorID + ".txt"; 
     std::ifstream inFile(doctorFile);
     std::string line;
-
+    
     std::map <std::string, std::string> doc_map;
-
     std::vector<std::string> apptIDs;
     std::vector<std::string> apptDates;
 
@@ -151,23 +150,24 @@ void Patient::bookAppt(std::string date){
             doc_map[key] = value;
         }
     }
+
     // go through appt_times, and see if we can book a time.
     if(apptIDs.size() == apptDates.size()){
         for(int i = 0; i < apptIDs.size(); ++i){
+            std::cout << apptDates.at(i) << std::endl;
             if(apptDates.at(i) == date){
                 std::cout << "Sorry this date is already booked" << std::endl;
                 return;
             }
         }
-
+        // If yes add in patientID and date
         apptIDs.push_back(patientID);
         apptDates.push_back(date);
     }
 
     std::string idString;
     std::string dateString;
-
-    for(int i = 0; i < apptDates.size()){
+    for(int i = 0; i < apptDates.size(); ++i){
         if(idString.empty()){
             idString = apptIDs.at(i);
             dateString = apptDates.at(i);
@@ -182,7 +182,6 @@ void Patient::bookAppt(std::string date){
 
     save_file(doctorFile, doc_map);
 
-    // If yes add in patientID and date
     return;
 }
 
